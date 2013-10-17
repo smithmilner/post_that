@@ -31,3 +31,5 @@ Route::group(array('before' => 'auth'), function () {
     Route::get('admin', 'AdminController@getIndex');
 
 });
+
+Route::resource('posts', 'PostsController');
