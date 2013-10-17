@@ -9,7 +9,7 @@ class PostsController extends BaseController {
 	 */
 	public function index()
 	{
-		$posts = Post::orderBy('created_at', 'DESC')->get();
+		$posts = Post::orderBy('updated_at', 'DESC')->get();
         return View::make('posts.index')->with('posts', $posts);
 	}
 
@@ -115,7 +115,7 @@ class PostsController extends BaseController {
 	{
 		Post::find($id)->delete();
 
-		return Redirect::to_route('posts.index');
+		return Redirect::route('posts.index');
 	}
 
 }

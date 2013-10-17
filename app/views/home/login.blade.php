@@ -17,6 +17,7 @@
 
         {{ Form::submit('Login', array('class' => 'btn btn-success')) }}
         {{ HTML::link('register', 'Register', array('class' => 'btn btn-primary')) }}
+        {{ link_to_route('posts.index', 'Register', array(), array()) }}
         {{ Form::close() }}
     </div>
 </div>
