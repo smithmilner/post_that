@@ -62,7 +62,19 @@ class PostsController extends BaseController {
 	 */
 	public function show($id)
 	{
-        return View::make('posts.show');
+		$post 	= Post::find($id);
+		$author = User::find($post->author);
+
+		if (is_null($author)) {
+			$author = new User;
+			$author->username = 'anonymous';
+		}
+
+		if (is_null($post)) {
+        	return Redirect::route('posts.index');
+        }
+
+        return View::make('posts.show')->with('post', $post)->with('author', $author);
 	}
 
 	/**

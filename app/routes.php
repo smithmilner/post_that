@@ -26,10 +26,26 @@ Route::group(array('before' => 'guest'), function() {
 });
 
 Route::group(array('before' => 'auth'), function () {
-    
+
     Route::get('logout', 'HomeController@logout');
     Route::get('admin', 'AdminController@getIndex');
+    Route::resource('posts', 'PostsController');
 
 });
 
-Route::resource('posts', 'PostsController');
+/**
+ * Custom HTML Macros
+ */
+HTML::macro('rawLink', function($url, $title = null, $attributes = array(), $secure = null)
+{
+    $url = URL::to($url, array(), $secure);
+
+    if (is_null($title) or $title === false) $title = $url;
+
+    return '<a href="'.$url.'"'.HTML::attributes($attributes).'>'.$title.'</a>';
+});
+
+HTML::macro('rawLinkRoute', function($name, $title = null, $parameters = array(), $attributes = array())
+{
+    return HTML::rawLink(URL::route($name, $parameters), $title, $attributes);
+});
