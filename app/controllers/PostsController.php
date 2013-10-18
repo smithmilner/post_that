@@ -39,8 +39,8 @@ class PostsController extends BaseController {
 		if ($v->passes()) {
 
 			$post = new Post;
-			$post->title = Input::get('title');
-			$post->body  = Input::get('body');
+			$post->title = HTML::entities(Input::get('title'));
+			$post->body  = HTML::entities(Input::get('body'));
 
 			if (Auth::check()) {
 				$post->author =	Auth::user()->id;

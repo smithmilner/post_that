@@ -77,7 +77,7 @@ class HomeController extends BaseController {
 			$password = Hash::make($password);
 
 			$user = new User();
-			$user->username = $input['username'];
+			$user->username = HTML::entities($input['username']);
 			$user->email = $input['email'];
 			$user->password = $password;
 			$user->save();
