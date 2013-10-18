@@ -34,7 +34,7 @@
         <tbody>
             @foreach($posts as $p)
             <tr>
-                <th>{{ HTML::rawLinkRoute('posts.show', '<span class="glyphicon glyphicon-pencil"></span> ' . $p->title, array($p->id)) }}</th>
+                <th>{{ HTML::rawLinkRoute('posts.show', '<span class="glyphicon glyphicon-pencil"></span> ' . e($p->title), array($p->id)) }}</th>
                 <th>
                     <span class="label label-info">
                         {{ Carbon::createFromTimestamp(strtotime($p->created_at))->diffForHumans() }}

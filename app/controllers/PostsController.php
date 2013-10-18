@@ -39,8 +39,8 @@ class PostsController extends BaseController {
 		if ($v->passes()) {
 
 			$post = new Post;
-			$post->title = HTML::entities(Input::get('title'));
-			$post->body  = HTML::entities(Input::get('body'));
+			$post->title = Input::get('title');
+			$post->body  = Input::get('body');
 
 			if (Auth::check()) {
 				$post->author =	Auth::user()->id;
@@ -62,17 +62,21 @@ class PostsController extends BaseController {
 	 */
 	public function show($id)
 	{
-		$post 	= Post::find($id);
-		$author = User::find($post->author);
+		$post = Post::find($id);
+
+		if (is_null($post)) {
+
+			return Redirect::route('posts.index');
+
+        } else {
+
+			$author = User::find($post->author);
+        }
 
 		if (is_null($author)) {
 			$author = new User;
 			$author->username = 'anonymous';
 		}
-
-		if (is_null($post)) {
-        	return Redirect::route('posts.index');
-        }
 
         return View::make('posts.show')->with('post', $post)->with('author', $author);
 	}
