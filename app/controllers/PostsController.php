@@ -68,15 +68,9 @@ class PostsController extends BaseController {
 
 			return Redirect::route('posts.index');
 
-        } else {
-
-			$author = User::find($post->author);
         }
 
-		if (is_null($author)) {
-			$author = new User;
-			$author->username = 'anonymous';
-		}
+		$author = User::find($post->author);
 
         return View::make('posts.show')->with('post', $post)->with('author', $author);
 	}
@@ -134,4 +128,13 @@ class PostsController extends BaseController {
 		return Redirect::route('posts.index');
 	}
 
+	/**
+	 * Fetch all posts by a certain user.
+	 * @param   User $user A user object.
+	 * @return  Response
+	 */
+	public function getUserPosts(User $user) {
+		$posts = Post::userPosts($user->id)->get();
+		return View::make('posts.user')->with('posts', $posts)->with('author', $user);
+	}
 }

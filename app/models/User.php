@@ -49,4 +49,26 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->email;
 	}
 
+	/**
+	 * Finds the username for the suppied user.
+	 * @param  int  $user_id
+	 * @return  string
+	 */
+	public static function getUserName($user_id)
+	{
+		$user = User::find($user_id);
+
+		if (is_null($user)) {
+
+			$username = 'anonymous';
+
+		} else {
+
+			$username = $user->username;
+
+		}
+
+		return ucwords($username);
+	}
+
 }
