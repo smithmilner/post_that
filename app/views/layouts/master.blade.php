@@ -4,7 +4,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Test</title>
+    <title>Post That</title>
     {{ HTML::style('css/bootstrap.css') }}
 
 </head>
