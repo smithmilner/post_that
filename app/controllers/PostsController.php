@@ -133,7 +133,7 @@ class PostsController extends BaseController {
 	 * @param   User $user A user object.
 	 * @return  Response
 	 */
-	public function getUserPosts(User $user) {
+	public function userPosts(User $user) {
 		$posts = Post::userPosts($user->id)->get();
 		return View::make('posts.user')->with('posts', $posts)->with('author', $user);
 	}

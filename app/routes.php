@@ -33,18 +33,18 @@ Route::group(array('before' => 'auth'), function () {
     Route::get('logout', 'HomeController@logout');
     Route::get('admin', 'AdminController@getIndex');
 
-    // Route::resource('posts', 'PostsController');
-    Route::get('posts',              array('as' => 'posts.index',   'uses' => 'PostsController@index'));
-    Route::get('posts/create',       array('as' => 'posts.create',  'uses' => 'PostsController@create'));
-    Route::post('posts',             array('as' => 'posts.store',   'uses' => 'PostsController@store'));
-    Route::get('posts/{posts}',      array('as' => 'posts.show',    'uses' => 'PostsController@show'));
-    Route::get('posts/{posts}/edit', array('as' => 'posts.edit',    'uses' => 'PostsController@edit'));
-    Route::put('posts/{posts}',      array('as' => 'posts.update',  'uses' => 'PostsController@update'));
-    Route::delete('posts/{posts}',   array('as' => 'posts.destroy', 'uses' => 'PostsController@destroy'));
+    Route::resource('posts', 'PostsController');
+    // Route::get('posts',              array('as' => 'posts.index',   'uses' => 'PostsController@index'));
+    // Route::get('posts/create',       array('as' => 'posts.create',  'uses' => 'PostsController@create'));
+    // Route::post('posts',             array('as' => 'posts.store',   'uses' => 'PostsController@store'));
+    // Route::get('posts/{posts}',      array('as' => 'posts.show',    'uses' => 'PostsController@show'));
+    // Route::get('posts/{posts}/edit', array('as' => 'posts.edit',    'uses' => 'PostsController@edit'));
+    // Route::put('posts/{posts}',      array('as' => 'posts.update',  'uses' => 'PostsController@update'));
+    // Route::delete('posts/{posts}',   array('as' => 'posts.destroy', 'uses' => 'PostsController@destroy'));
     // Route::patch('posts/{posts}', 'PostsController@index');
 
     Route::get('posts/user/{user}', array('as' => 'posts.user', 'uses' =>
-    'PostsController@getUserPosts'));
+    'PostsController@userPosts'));
 
 });
 
