@@ -51,7 +51,7 @@ class HomeController extends BaseController {
 
 	public function postRegister()
 	{
-		$user = new User();
+		$user = new User;
 		if ($user->save()) {
 
 			User::login(Input::only('username','password'));

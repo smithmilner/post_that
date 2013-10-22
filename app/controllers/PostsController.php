@@ -32,26 +32,16 @@ class PostsController extends BaseController {
 	{
 		$input = Input::all();
 
-		$rules = array('title' => 'required');
-
-		$v = Validator::make($input, $rules);
-
-		if ($v->passes()) {
-
-			$post = new Post;
-			$post->title = Input::get('title');
-			$post->body  = Input::get('body');
-
-			if (Auth::check()) {
-				$post->author =	Auth::user()->id;
-			}
-
-			$post->save();
-
-			return Redirect::route('posts.index');
+		if (Auth::check()) {
+			$input['author'] = Auth::user()->id;
 		}
 
-		return Redirect::back()->withInput->withErrors($v);
+		$post = new Post($input);
+		if ($post->save()) {
+			return Redirect::route('posts.show', array($post->id));
+		}
+
+		return Redirect::back()->withErrors($post->errors());
 	}
 
 	/**
@@ -70,9 +60,7 @@ class PostsController extends BaseController {
 
         }
 
-		$author = User::find($post->author);
-
-        return View::make('posts.show')->with('post', $post)->with('author', $author);
+        return View::make('posts.show')->with('post', $post);
 	}
 
 	/**

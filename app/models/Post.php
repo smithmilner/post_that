@@ -3,9 +3,18 @@
 use LaravelBook\Ardent\Ardent;
 
 class Post extends Ardent {
-	protected $guarded = array();
 
-	public static $rules = array();
+    public $autoHydrateEntityFromInput = true;
+
+    /**
+     * Model attributes allowed to be mass assigned.
+     * @var array
+     */
+    protected $fillable = array('title', 'author', 'body');
+
+	protected $guarded = array('id');
+
+	public static $rules = array('title' => 'required');
 
     /**
      * Provides a base query builder to list posts by user id.
@@ -17,4 +26,14 @@ class Post extends Ardent {
     {
         return static::where('author', '=', $user_id);
     }
+
+    public function beforeSave() {
+        // Save the current user as author.
+        if($this->isDirty('author') && Auth::check()) {
+            $this->author = Auth::user()->id;
+        }
+
+        return true;
+    }
+
 }
