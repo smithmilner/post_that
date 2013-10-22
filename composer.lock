@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "463e4bdb1995910de58c12d16ee897fa",
+    "hash": "3ea78d91a1880477b25d79c1e02f06b5",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -667,12 +667,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "03563aad714d5cc7c4309ae16ab2e21565435638"
+                "reference": "1dd5eb268e2b1ad8d0a45ece8aa7b22ee99ab30d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/03563aad714d5cc7c4309ae16ab2e21565435638",
-                "reference": "03563aad714d5cc7c4309ae16ab2e21565435638",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/1dd5eb268e2b1ad8d0a45ece8aa7b22ee99ab30d",
+                "reference": "1dd5eb268e2b1ad8d0a45ece8aa7b22ee99ab30d",
                 "shasum": ""
             },
             "require": {
@@ -730,10 +730,10 @@
                 "illuminate/workbench": "self.version"
             },
             "require-dev": {
-                "aws/aws-sdk-php": "2.2.*",
-                "iron-io/iron_mq": "1.4.4",
+                "aws/aws-sdk-php": "2.4.*",
+                "iron-io/iron_mq": "1.4.*",
                 "mockery/mockery": "0.8.0",
-                "pda/pheanstalk": "2.0.*",
+                "pda/pheanstalk": "2.1.*",
                 "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
@@ -772,7 +772,66 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-10-16 13:26:55"
+            "time": "2013-10-22 01:45:48"
+        },
+        {
+            "name": "laravelbook/ardent",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravelbook/ardent.git",
+                "reference": "4d3b12d7afc82277ec4c77c3f59d9296d658b903"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravelbook/ardent/zipball/4d3b12d7afc82277ec4c77c3f59d9296d658b903",
+                "reference": "4d3b12d7afc82277ec4c77c3f59d9296d658b903",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "4.x",
+                "illuminate/support": "4.x",
+                "illuminate/validation": "4.x",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "LaravelBook\\Ardent": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Max Ehsan",
+                    "email": "contact@laravelbook.com",
+                    "homepage": "http://laravelbook.com/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Igor Santos",
+                    "email": "igorsantos07@gmail.com",
+                    "homepage": "http://www.igorsantos.com.br",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Self-validating smart models for Laravel 4's Eloquent O/RM",
+            "homepage": "http://laravelbook.com/",
+            "keywords": [
+                "Active Record",
+                "activerecord",
+                "database",
+                "eloquent",
+                "framework",
+                "laravel",
+                "orm",
+                "sql",
+                "validation"
+            ],
+            "time": "2013-10-16 20:03:00"
         },
         {
             "name": "monolog/monolog",
@@ -1956,7 +2015,8 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "way/generators": 20
+        "way/generators": 20,
+        "laravelbook/ardent": 20
     },
     "platform": [
 

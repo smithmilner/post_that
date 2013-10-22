@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.0.*",
 		"way/generators": "dev-master",
-		"nesbot/Carbon": "*"
+		"nesbot/Carbon": "*",
+		"laravelbook/ardent": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

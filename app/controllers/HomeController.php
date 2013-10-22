@@ -22,37 +22,26 @@ class HomeController extends BaseController {
 
 	public function getLogin()
 	{
+		if (Auth::check()) {
+
+			return Redirect::to('admin');
+
+		}
+
 		return View::make('home.login');
 	}
 
 	public function postLogin()
 	{
-		$input = Input::all();
+		$input = Input::only('username', 'password');
+		$v = User::validateLogin($input);
 
-		$rules = array(
-			'username' => 'required',
-			'password' => 'required',
-		);
-
-		$v = Validator::make($input, $rules);
-
-		if ($v->fails()) {
-
-			return Redirect::to('login')->withErrors();
-
-		} else {
-
-			$credentials = array('username' => $input['username'], 'password' => $input['password']);
-			if (Auth::attempt($credentials)) {
-
-				return Redirect::to('admin');
-
-			} else {
-
-				return Redirect::to('login');
-
-			}
+		// If creds are valid and login is sucessful.
+		if ($v->passes() && User::login($input)) {
+			return Redirect::to('admin');
 		}
+
+		return Redirect::to('login')->withErrors($v);
 	}
 
 	public function getRegister()
@@ -61,32 +50,16 @@ class HomeController extends BaseController {
 	}
 
 	public function postRegister()
-	{ 
-		$input = Input::all();
-		$rules = array(
-			'username' => 'required|unique:users',
-			'email' => 'required|unique:users|email',
-			'password' => 'required'
-		);
-		$v = Validator::make($input, $rules);
+	{
+		$user = new User();
+		if ($user->save()) {
 
-		if ($v->passes())
-		{
-
-			$password = $input['password'];
-			$password = Hash::make($password);
-
-			$user = new User();
-			$user->username = HTML::entities($input['username']);
-			$user->email = $input['email'];
-			$user->password = $password;
-			$user->save();
-
-			return Redirect::to('login');
+			User::login(Input::only('username','password'));
+			return Redirect::to('login')->with('message', 'Thanks for Registering.');
 
 		} else {
 
-			return Redirect::to('register')->withInput()->withErrors($v);
+			return Redirect::to('register')->withInput()->withErrors($user->errors());
 
 		}
 	}
