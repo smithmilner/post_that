@@ -10,11 +10,16 @@ class Post extends Ardent {
      * Model attributes allowed to be mass assigned.
      * @var array
      */
-    protected $fillable = array('title', 'author', 'body');
+    protected $fillable = array('title', 'user_id', 'body');
 
 	protected $guarded = array('id');
 
 	public static $rules = array('title' => 'required');
+
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
 
     /**
      * Provides a base query builder to list posts by user id.
@@ -24,16 +29,7 @@ class Post extends Ardent {
      */
     public static function userPosts($user_id)
     {
-        return static::where('author', '=', $user_id);
-    }
-
-    public function beforeSave() {
-        // Save the current user as author.
-        if($this->isDirty('author') && Auth::check()) {
-            $this->author = Auth::user()->id;
-        }
-
-        return true;
+        return static::where('user_id', '=', $user_id);
     }
 
 }

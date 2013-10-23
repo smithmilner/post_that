@@ -32,12 +32,14 @@ class PostsController extends BaseController {
 	{
 		$input = Input::all();
 
-		if (Auth::check()) {
-			$input['author'] = Auth::user()->id;
+		if (!Auth::check()) {
+			return new NotFoundHttpException;
 		}
 
 		$post = new Post($input);
-		if ($post->save()) {
+
+		if (Auth::user()->posts()->save($post)) {
+
 			return Redirect::route('posts.show', array($post->id));
 		}
 
@@ -122,7 +124,7 @@ class PostsController extends BaseController {
 	 * @return  Response
 	 */
 	public function userPosts(User $user) {
-		$posts = Post::userPosts($user->id)->get();
+		$posts = $user->posts;
 		return View::make('posts.user')->with('posts', $posts)->with('author', $user);
 	}
 }

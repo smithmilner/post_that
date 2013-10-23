@@ -33,7 +33,7 @@
                 <td>{{ HTML::rawLinkRoute('posts.show', '<span class="glyphicon glyphicon-pencil"></span> ' . e($p->title), array($p->id)) }}
                 </td>
                 <td>
-                    {{ User::getUserName($p->author) }}
+                    {{ User::getUserName($p->user_id) }}
                 </td>
                 <td>
                     <span class="label label-info">

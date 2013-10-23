@@ -45,6 +45,11 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 		'password' => 'required|alpha_num|min:5',
 	);
 
+	public function posts()
+	{
+		return $this->hasMany('Post');
+	}
+
 	/**
 	 * Get the unique identifier for the user.
 	 *
