@@ -52,7 +52,7 @@ class PostsController extends BaseController {
 	 */
 	public function show($id)
 	{
-		$post = Post::find($id);
+		$post = Post::findOrFail($id);
 
 		if (is_null($post)) {
 
@@ -71,7 +71,7 @@ class PostsController extends BaseController {
 	 */
 	public function edit($id)
 	{
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
 
         if (is_null($post)) {
         	return Redirect::route('posts.index');
@@ -111,7 +111,7 @@ class PostsController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		Post::find($id)->delete();
+		Post::findOrFail($id)->delete();
 
 		return Redirect::route('posts.index');
 	}
