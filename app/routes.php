@@ -46,6 +46,10 @@ Route::group(array('before' => 'auth'), function () {
     Route::get('posts/user/{user}', array('as' => 'posts.user', 'uses' =>
     'PostsController@userPosts'));
 
+    // User Specific Pages
+    Route::get('users', array('as' => 'users.index', 'uses' => 'UsersController@index'));
+    Route::get('users/{user}', array('as' => 'users.show', 'uses' => 'UsersController@show'));
+
 });
 
 /**

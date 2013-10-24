@@ -27,6 +27,7 @@
                 @if(Auth::check())
                 <li>{{ HTML::rawLink('admin', '<span class="glyphicon glyphicon-list"></span> Admin') }}</li>
                 <li>{{ HTML::rawLinkRoute('posts.index', '<span class="glyphicon glyphicon-book"></span> Posts') }}</li>
+                <li>{{ HTML::rawLinkRoute('users.index', '<span class="glyphicon glyphicon-user"></span> Users') }}</li>
                 @endif
 
             </ul>

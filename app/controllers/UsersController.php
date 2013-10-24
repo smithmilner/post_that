@@ -9,7 +9,8 @@ class UsersController extends BaseController {
 	 */
 	public function index()
 	{
-        return View::make('users.index');
+		$users = User::all();
+		return View::make('users.index')->with('users', $users);
 	}
 
 	/**
@@ -38,9 +39,9 @@ class UsersController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($user)
 	{
-        return View::make('users.show');
+        return View::make('users.show')->with('user', $user);
 	}
 
 	/**
