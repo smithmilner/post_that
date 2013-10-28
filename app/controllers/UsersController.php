@@ -41,7 +41,8 @@ class UsersController extends BaseController {
 	 */
 	public function show($user)
 	{
-        return View::make('users.show')->with('user', $user);
+		$flags = $user->flags;
+		return View::make('users.show')->with('user', $user)->with('flags', $flags);
 	}
 
 	/**

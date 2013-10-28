@@ -9,7 +9,14 @@
 <div class="panel panel-info">
     <div class="panel-heading"><h3></h3></div>
     <div class="panel-body">
-        <strong></strong><br />
+		@if(count($flags))
+			<strong>Favorite Posts:</strong>
+			<ul>
+				@foreach($flags as $flag)
+					<li>{{ HTML::rawLinkRoute('posts.show', '<span class="glyphicon glyphicon-pencil"></span> ' . e($flag->post->title), array($flag->post->id)) }}</li>
+				@endforeach
+			</ul>
+		@endif
     </div>
 </div>
 

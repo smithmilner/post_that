@@ -15,7 +15,7 @@ class Flag extends Ardent {
 	protected $guarded = array('id');
 
 	public static $rules = array(
-        'post_id' => 'required'
+        'post_id' => 'required',
         'user_id' => 'required',
     );
 

@@ -84,9 +84,15 @@ class FlagsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($flag)
 	{
-		//
+		$post = Post::find($flag->post_id);
+
+		Flag::findOrFail($flag->id)->delete();
+
+		Alert::info('Favorite Removed')->flash();
+
+		return Redirect::route('posts.show', array($post->id));
 	}
 
 }
