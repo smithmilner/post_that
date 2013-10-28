@@ -21,6 +21,11 @@ class Post extends Ardent {
         return $this->belongsTo('User');
     }
 
+    public function flags()
+    {
+        return $this->hasMany('Flag');
+    }
+
     /**
      * Provides a base query builder to list posts by user id.
      * 

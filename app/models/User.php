@@ -50,6 +50,11 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 		return $this->hasMany('Post');
 	}
 
+	public function flags()
+	{
+		return $this->hasMany('Flag');
+	}
+
 	/**
 	 * Get the unique identifier for the user.
 	 *

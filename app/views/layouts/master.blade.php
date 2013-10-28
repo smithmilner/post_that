@@ -14,8 +14,13 @@
 
 <div class="container" style="margin-top:90px">
     <div class="row">
+
+        @include('_partials.messages')
+
         <div class="col-md-12">
+
             @yield('content')
+
         </div>
     </div>
 </div>

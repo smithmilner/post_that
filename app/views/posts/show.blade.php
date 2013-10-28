@@ -10,4 +10,6 @@
     </div>
 </div>
 
+@include('_partials/favorite')
+
 @stop

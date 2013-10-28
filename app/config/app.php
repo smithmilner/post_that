@@ -114,6 +114,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
+		'Prologue\Alerts\AlertsServiceProvider',
 
 	),
 
@@ -180,6 +181,7 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Carbon'		  => 'Carbon\Carbon',
+		'Alert' 		  => 'Prologue\Alerts\Facades\Alert',
 	),
 
 );

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "3ea78d91a1880477b25d79c1e02f06b5",
+    "hash": "d6b0cfd01060aceb824a01f8bec59fed",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -125,16 +125,16 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "d0e4447707a064a5814b18cb0dcc2f24185f6179"
+                "reference": "e16d7adf45664a50fa86f515b6d5e7f670130449"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/d0e4447707a064a5814b18cb0dcc2f24185f6179",
-                "reference": "d0e4447707a064a5814b18cb0dcc2f24185f6179",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/e16d7adf45664a50fa86f515b6d5e7f670130449",
+                "reference": "e16d7adf45664a50fa86f515b6d5e7f670130449",
                 "shasum": ""
             },
             "require": {
@@ -142,6 +142,10 @@
             },
             "conflict": {
                 "doctrine/common": ">2.2,<2.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=3.7",
+                "satooshi/php-coveralls": "~0.6"
             },
             "type": "library",
             "extra": {
@@ -190,7 +194,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2013-09-26 19:23:25"
+            "time": "2013-10-25 19:04:14"
         },
         {
             "name": "doctrine/collections",
@@ -667,12 +671,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "1dd5eb268e2b1ad8d0a45ece8aa7b22ee99ab30d"
+                "reference": "d9d61e13fc2f01efc00c9b87ff6f1e91bab1e9b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/1dd5eb268e2b1ad8d0a45ece8aa7b22ee99ab30d",
-                "reference": "1dd5eb268e2b1ad8d0a45ece8aa7b22ee99ab30d",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/d9d61e13fc2f01efc00c9b87ff6f1e91bab1e9b8",
+                "reference": "d9d61e13fc2f01efc00c9b87ff6f1e91bab1e9b8",
                 "shasum": ""
             },
             "require": {
@@ -772,7 +776,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-10-22 01:45:48"
+            "time": "2013-10-28 18:49:54"
         },
         {
             "name": "laravelbook/ardent",
@@ -839,12 +843,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "620922356a36d8903d213c986568fe159b530747"
+                "reference": "0f3c054dff866aa687ab07572b731fb2ba32e703"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/620922356a36d8903d213c986568fe159b530747",
-                "reference": "620922356a36d8903d213c986568fe159b530747",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/0f3c054dff866aa687ab07572b731fb2ba32e703",
+                "reference": "0f3c054dff866aa687ab07572b731fb2ba32e703",
                 "shasum": ""
             },
             "require": {
@@ -894,7 +898,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-10-16 16:27:10"
+            "time": "2013-10-28 09:41:17"
         },
         {
             "name": "mustache/mustache",
@@ -1126,6 +1130,104 @@
                 "redis"
             ],
             "time": "2013-08-31 08:51:10"
+        },
+        {
+            "name": "prologue/alerts",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Prologue/Alerts.git",
+                "reference": "32d4a687e3c8d6403c807ba5f9466899c97615e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Prologue/Alerts/zipball/32d4a687e3c8d6403c807ba5f9466899c97615e3",
+                "reference": "32d4a687e3c8d6403c807ba5f9466899c97615e3",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~4",
+                "illuminate/session": "~4",
+                "illuminate/support": "~4",
+                "php": ">=5.3.0",
+                "prologue/support": "1.0.x"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Prologue\\Alerts": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dries Vints",
+                    "email": "dries.vints@gmail.com",
+                    "homepage": "http://driesvints.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Prologue Alerts is a package that handles global site messages.",
+            "keywords": [
+                "alerts",
+                "laravel",
+                "messages"
+            ],
+            "time": "2013-10-07 19:22:20"
+        },
+        {
+            "name": "prologue/support",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Prologue/Support.git",
+                "reference": "1a95383ab5ccb59e10f3c76c7932502ddd87a97c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Prologue/Support/zipball/1a95383ab5ccb59e10f3c76c7932502ddd87a97c",
+                "reference": "1a95383ab5ccb59e10f3c76c7932502ddd87a97c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~4",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Prologue\\Support": "src/"
+                },
+                "files": [
+                    "src/Prologue/Support/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dries Vints",
+                    "email": "dries.vints@gmail.com",
+                    "homepage": "http://driesvints.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Prologue Support is an extension for Illuminate Support",
+            "homepage": "https://github.com/Prologue/Support",
+            "keywords": [
+                "helpers",
+                "laravel",
+                "support"
+            ],
+            "time": "2013-10-08 15:53:35"
         },
         {
             "name": "psr/log",
@@ -1687,12 +1789,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "cc1dab5ef88e9bdaa6e5e0b4df921ab0d793f68d"
+                "reference": "dce9c5096d8f1460af901e3899f88e9d3c1cec1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/cc1dab5ef88e9bdaa6e5e0b4df921ab0d793f68d",
-                "reference": "cc1dab5ef88e9bdaa6e5e0b4df921ab0d793f68d",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/dce9c5096d8f1460af901e3899f88e9d3c1cec1b",
+                "reference": "dce9c5096d8f1460af901e3899f88e9d3c1cec1b",
                 "shasum": ""
             },
             "require": {
@@ -1749,7 +1851,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2013-10-10 14:16:40"
+            "time": "2013-10-28 14:46:04"
         },
         {
             "name": "symfony/process",
@@ -1758,12 +1860,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "81191e354fe9dad0451036ccf0fdf283649d3f1e"
+                "reference": "c1c6c1f668b1255c5936e6596d3c5e50a3d8ed13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/81191e354fe9dad0451036ccf0fdf283649d3f1e",
-                "reference": "81191e354fe9dad0451036ccf0fdf283649d3f1e",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/c1c6c1f668b1255c5936e6596d3c5e50a3d8ed13",
+                "reference": "c1c6c1f668b1255c5936e6596d3c5e50a3d8ed13",
                 "shasum": ""
             },
             "require": {
@@ -1796,7 +1898,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2013-10-09 21:17:57"
+            "time": "2013-10-26 07:52:48"
         },
         {
             "name": "symfony/routing",
@@ -2016,7 +2118,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "way/generators": 20,
-        "laravelbook/ardent": 20
+        "laravelbook/ardent": 20,
+        "prologue/alerts": 20
     },
     "platform": [
 

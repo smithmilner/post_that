@@ -6,12 +6,6 @@
     <div class="panel-heading">Add a new Post</div>
     <div class="panel-body">
         {{ Form::open(array('route' => array('posts.store'))) }}
-        @if($errors->any())
-        <div class="alert alert-danger">
-            <a href="#" class="close" data-dismiss="alert">&times;</a>
-            {{ implode('', $errors->all('<li class="error">:message</li>')) }}
-        </div>
-        @endif
         <div class="control-group">
             {{ Form::label('title', 'Title: ') }}
             {{ Form::text('title', '', array('placeholder' => 'add a title', 'class' => 'form-control')) }}
