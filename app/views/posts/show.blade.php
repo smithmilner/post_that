@@ -15,6 +15,15 @@
     </div>
 </div>
 
+@if(count($flags))
+	<strong>Favorited By:</strong>
+	<ul>
+		@foreach($flags as $flag)
+			<li>{{ HTML::rawLinkRoute('users.show', '<span class="glyphicon glyphicon-user"></span> ' . e($flag->user->username), array($flag->user->id)) }}</li>
+		@endforeach
+	</ul>
+@endif
+
 
 
 @stop

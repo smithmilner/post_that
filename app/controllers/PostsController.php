@@ -62,7 +62,8 @@ class PostsController extends BaseController {
 
         }
 
-        return View::make('posts.show')->with('post', $post);
+        $flags = $post->flags;
+        return View::make('posts.show')->with('post', $post)->with('flags', $flags);
 	}
 
 	/**
