@@ -1,5 +1,7 @@
 /app/config/local
 /app/config/dev
+/app/config/stage
+/app/config/production
 /bootstrap/compiled.php
 /vendor
 composer.phar

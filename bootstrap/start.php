@@ -28,8 +28,8 @@ $app->redirectIfTrailingSlash();
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('post-that.local'),
-	'dev'   => array('dev.post-that.affinitybridge.com'),
+	'dev'     => array('dev.post-that.affinitybridge.com'),
+	'stage'   => array('stage.post-that.affinitybridge.com'),
 
 ));
 
