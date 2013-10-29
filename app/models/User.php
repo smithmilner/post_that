@@ -4,7 +4,7 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 use LaravelBook\Ardent\Ardent;
 
-class User extends Ardent implements UserInterface, RemindableInterface {
+class User extends AffinityArdent implements UserInterface, RemindableInterface {
 
 	public $autoHydrateEntityFromInput = true;
 

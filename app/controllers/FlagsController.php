@@ -38,10 +38,7 @@ class FlagsController extends BaseController {
 		}
 
 		// Add validation errors to the page.
-		foreach($flag->errors()->all() as $error) {
-			Alert::error($error)->flash();
-		}
-
+		$flag->displayErrors();
 		return Redirect::route('posts.show', array($input['post_id']));
 	}
 

@@ -58,8 +58,8 @@ class HomeController extends BaseController {
 			return Redirect::to('login')->with('message', 'Thanks for Registering.');
 
 		} else {
-
-			return Redirect::to('register')->withInput()->withErrors($user->errors());
+			$user->displayErrors();
+			return Redirect::to('register')->withInput();
 
 		}
 	}

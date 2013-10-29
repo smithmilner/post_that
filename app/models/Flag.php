@@ -2,7 +2,7 @@
 
 use LaravelBook\Ardent\Ardent;
 
-class Flag extends Ardent {
+class Flag extends AffinityArdent {
 
 	public $autoHydrateEntityFromInput = true;
 

@@ -43,7 +43,9 @@ class PostsController extends BaseController {
 			return Redirect::route('posts.show', array($post->id));
 		}
 
-		return Redirect::back()->withErrors($post->errors());
+		// Set errors
+		$post->displayErrors();
+		return Redirect::back();
 	}
 
 	/**
@@ -91,19 +93,16 @@ class PostsController extends BaseController {
 	 */
 	public function update($id)
 	{
-		$input = array_except(Input::all(), '_method');
-		$rules = array('title' => 'required');
+		$post = Post::findOrFail($id);
 
-		$v = Validator::make($input, $rules);
+		if ($post->update(Input::all())) {
 
-		if ($v->passes()) {
-
-			Post::find($id)->update($input);
 			return Redirect::route('posts.index');
 
 		}
-
-		return Redirect::back()->withInput()->withErrors($v);
+		// Set errors
+		$post->displayErrors();
+		return Redirect::back()->withInput();
 	}
 
 	/**
