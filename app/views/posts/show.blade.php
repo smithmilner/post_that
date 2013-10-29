@@ -23,15 +23,24 @@
 	@parent
 
 	@include('_partials/favorite')
+
 	<br />
 	@if(count($flags))
-		<strong>Favorited By:</strong>
-		<ul>
-			@foreach($flags as $flag)
-				<li>{{ HTML::rawLinkRoute('users.show', '<span class="glyphicon glyphicon-user"></span> ' . e($flag->user->username), array($flag->user->id)) }}</li>
-			@endforeach
-		</ul>
+		<div class="panel panel-default">
+
+			<div class="panel-heading">
+				<h3 class="panel-title">Favorited By:</h3>
+			</div>
+
+			<div class="panel-body">
+				<ul>
+					@foreach($flags as $flag)
+						<li>{{ HTML::rawLinkRoute('users.show', '<span class="glyphicon glyphicon-user"></span> ' . e($flag->user->username), array($flag->user->id)) }}</li>
+					@endforeach
+				</ul>
+			</div>
+
+		</div>
 
 	@endif
-
 @stop

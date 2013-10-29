@@ -18,12 +18,22 @@
 @section('sidebar')
 
 	@if(count($flags))
-		<strong>Favorite Posts:</strong>
-		<ul>
-			@foreach($flags as $flag)
-				<li>{{ HTML::rawLinkRoute('posts.show', '<span class="glyphicon glyphicon-pencil"></span> ' . e($flag->post->title), array($flag->post->id)) }}</li>
-			@endforeach
-		</ul>
-	@endif
 
+		<div class="panel panel-default">
+
+			<div class="panel-heading">
+				<h3 class="panel-title">Favorite Posts:</h3>
+			</div>
+
+			<div class="panel-body">
+				<ul>
+					@foreach($flags as $flag)
+						<li>{{ HTML::rawLinkRoute('posts.show', '<span class="glyphicon glyphicon-pencil"></span> ' . e($flag->post->title), array($flag->post->id)) }}</li>
+					@endforeach
+				</ul>
+			</div>
+
+		</div>
+
+	@endif
 @stop
