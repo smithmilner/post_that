@@ -22,7 +22,7 @@
             @yield('content')
 
         </div>
-        <div class="col-md-offset-1 col-md-3">
+        <div class="col-md-4">
 
             @section('sidebar')
             @show
