@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="page-header">
-    <h1>{{ ucwords(e($user->username)) }}</h1>
+    <h1>{{{ ucwords($user->username) }}}</h1>
 </div>
 
 <div class="panel panel-info">

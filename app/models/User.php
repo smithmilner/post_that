@@ -137,11 +137,6 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 			$this->password = Hash::make($this->password);
 		}
 
-		// Clean username.
-		if($this->isDirty('username')) {
-			$this->username = HTML::entities($this->username);
-		}
-
 		return true;
 	}
 

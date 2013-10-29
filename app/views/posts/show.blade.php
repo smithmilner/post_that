@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="page-header">
-    <h1>{{ ucwords(e($post->title)) }}</h1>
+    <h1>{{{ ucwords($post->title) }}}</h1>
 </div>
 
 <div class="panel panel-info">
@@ -13,7 +13,7 @@
 	</div>
     <div class="panel-body">
         <strong>{{ Carbon::createFromTimestamp(strtotime($post->created_at))->diffForHumans() }} - {{ link_to_route('users.show', e(User::getUserName($post->user_id)), array($post->user_id)) }}</strong><br />
-        {{ e($post->body) }}
+        {{{ $post->body }}}
     </div>
 </div>
 

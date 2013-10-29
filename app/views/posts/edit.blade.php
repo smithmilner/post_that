@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="panel panel-info">
-    <div class="panel-heading"><strong>Edit:</strong> {{ e($post->title) }}</div>
+    <div class="panel-heading"><strong>Edit:</strong> {{{ $post->title }}}</div>
     <div class="panel-body">
         {{ Form::open(array('route' => array('posts.update', $post->id), 'method' => 'put')) }}
         <div class="control-group">

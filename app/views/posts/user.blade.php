@@ -5,7 +5,7 @@
 @if($posts->count())
 <div class="page-header">
     <h1>
-        Review {{ User::getUserName($author->id) }}'s Posts
+        Review {{{ User::getUserName($author->id) }}}'s Posts
         <small>{{ $posts->count() }} @if($posts->count() > 1) Posts @else Post @endif </small>
     </h1>
 </div>
@@ -33,7 +33,7 @@
                 <td>{{ HTML::rawLinkRoute('posts.show', '<span class="glyphicon glyphicon-pencil"></span> ' . e($p->title), array($p->id)) }}
                 </td>
                 <td>
-                    {{ link_to_route('users.show', ucwords($p->user->username), array($p->user->id))}}
+                    {{ link_to_route('users.show', ucwords(e($p->user->username)), array($p->user->id))}}
                 </td>
                 <td>
                     <span class="label label-info">
