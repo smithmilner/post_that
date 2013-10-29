@@ -17,9 +17,15 @@
 
         @include('_partials.messages')
 
-        <div class="col-md-12">
+        <div class="col-md-8">
 
             @yield('content')
+
+        </div>
+        <div class="col-md-offset-1 col-md-3">
+
+            @section('sidebar')
+            @show
 
         </div>
     </div>

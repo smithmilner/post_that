@@ -2,11 +2,13 @@
 
 @section('content')
 
+<div class="page-header">
+    <h1>{{ ucwords(e($post->title)) }}</h1>
+</div>
+
 <div class="panel panel-info">
     <div class="panel-heading">
-		<h3>{{ e($post->title) }}</h3>
-
-		@include('_partials/favorite')
+		<h3>Details</h3>
 
 	</div>
     <div class="panel-body">
@@ -15,15 +17,21 @@
     </div>
 </div>
 
-@if(count($flags))
-	<strong>Favorited By:</strong>
-	<ul>
-		@foreach($flags as $flag)
-			<li>{{ HTML::rawLinkRoute('users.show', '<span class="glyphicon glyphicon-user"></span> ' . e($flag->user->username), array($flag->user->id)) }}</li>
-		@endforeach
-	</ul>
-@endif
+@stop
 
+@section('sidebar')
+	@parent
 
+	@include('_partials/favorite')
+	<br />
+	@if(count($flags))
+		<strong>Favorited By:</strong>
+		<ul>
+			@foreach($flags as $flag)
+				<li>{{ HTML::rawLinkRoute('users.show', '<span class="glyphicon glyphicon-user"></span> ' . e($flag->user->username), array($flag->user->id)) }}</li>
+			@endforeach
+		</ul>
+
+	@endif
 
 @stop
