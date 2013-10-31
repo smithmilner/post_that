@@ -10,7 +10,7 @@
             {{ Form::label('title', 'Title: ') }}
             {{ Form::text('title', '', array('placeholder' => 'add a title', 'class' => 'form-control')) }}
             {{ Form::label('body', 'Body: ') }}
-            {{ Form::textarea('body', '', array('placeholder' => 'add some text to your note', 'class' => 'form-control')) }}
+            {{ Form::wysiwyg('body', '', array('placeholder' => 'add some text to your note', 'class' => 'form-control')) }}
         </div></br>
         {{ Form::submit('Add', array('class' => 'btn btn-success')) }}
         {{ HTML::link('posts', 'Cancel', array('class' => 'btn btn-warning')) }}

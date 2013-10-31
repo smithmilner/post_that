@@ -53,6 +53,14 @@ Route::group(array('before' => 'auth'), function () {
     Route::delete('flags/{flag}', array('as' => 'flags.destroy', 'uses' => 'FlagsController@destroy'));
 });
 
+/**
+ * ======= Custom Form Macros =======
+ */
+Form::macro('wysiwyg', function($name, $value = null, $options = array())
+{
+    $textarea = Form::textarea($name, $value, $options);
+    return $textarea . "<script>CKEDITOR.replace('$name');</script>";
+});
 
 /**
  * ======= Custom HTML Macros =======

@@ -14,7 +14,10 @@ class Post extends AffinityArdent {
 
 	protected $guarded = array('id');
 
-	public static $rules = array('title' => 'required');
+	public static $rules = array(
+        'title' => 'required',
+        'user_id' => 'required'
+    );
 
     public function user()
     {
@@ -25,6 +28,15 @@ class Post extends AffinityArdent {
     {
         return $this->hasMany('Flag');
     }
+
+    /**
+     * Factory
+     */
+    public static $factory = array(
+        'title' => 'string',
+        'user_id' => 'factory|User',
+        'body' => 'body'
+    );
 
     /**
      * Provides a base query builder to list posts by user id.

@@ -5,10 +5,11 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.0.*",
-		"way/generators": "dev-master",
-		"nesbot/Carbon": "*",
 		"laravelbook/ardent": "dev-master",
-		"prologue/alerts": "dev-master"
+		"nesbot/Carbon": "*",
+		"prologue/alerts": "dev-master",
+		"way/generators": "dev-master",
+		"zizaco/factory-muff": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "d6b0cfd01060aceb824a01f8bec59fed",
+    "hash": "2fd4b33e07ee1ebfcf546ce45bb4238a",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -671,12 +671,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d9d61e13fc2f01efc00c9b87ff6f1e91bab1e9b8"
+                "reference": "dfd88c5078dc9cbc846a7f8d40f6b083a3f00e2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d9d61e13fc2f01efc00c9b87ff6f1e91bab1e9b8",
-                "reference": "d9d61e13fc2f01efc00c9b87ff6f1e91bab1e9b8",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/dfd88c5078dc9cbc846a7f8d40f6b083a3f00e2a",
+                "reference": "dfd88c5078dc9cbc846a7f8d40f6b083a3f00e2a",
                 "shasum": ""
             },
             "require": {
@@ -776,7 +776,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-10-28 18:49:54"
+            "time": "2013-10-29 20:05:47"
         },
         {
             "name": "laravelbook/ardent",
@@ -2107,6 +2107,48 @@
             ],
             "description": "Easier testing in Laravel.",
             "time": "2013-09-13 16:53:25"
+        },
+        {
+            "name": "zizaco/factory-muff",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Zizaco/factory-muff.git",
+                "reference": "f2a384f2b50c4a966d9fea48b35e5d232718b4cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Zizaco/factory-muff/zipball/f2a384f2b50c4a966d9fea48b35e5d232718b4cf",
+                "reference": "f2a384f2b50c4a966d9fea48b35e5d232718b4cf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Zizaco\\FactoryMuff": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Zizaco Zizuini",
+                    "email": "zizaco@gmail.com",
+                    "homepage": "http://www.zizaco.net"
+                }
+            ],
+            "description": "The goal of this Package is to enable the rapid creation of objects for the purpose of testing.",
+            "keywords": [
+                "factory",
+                "laravel",
+                "testing"
+            ],
+            "time": "2013-06-10 12:07:19"
         }
     ],
     "packages-dev": [
@@ -2117,9 +2159,10 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "way/generators": 20,
         "laravelbook/ardent": 20,
-        "prologue/alerts": 20
+        "prologue/alerts": 20,
+        "way/generators": 20,
+        "zizaco/factory-muff": 20
     },
     "platform": [
 

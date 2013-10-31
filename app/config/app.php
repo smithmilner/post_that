@@ -182,6 +182,8 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Carbon'		  => 'Carbon\Carbon',
 		'Alert' 		  => 'Prologue\Alerts\Facades\Alert',
+		'FactoryMuff'	  => 'Zizaco\FactoryMuff\Facade\FactoryMuff'
+
 	),
 
 );

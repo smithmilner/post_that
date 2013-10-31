@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <title>Post That</title>
     {{ HTML::style('css/bootstrap.css') }}
-
+    {{ HTML::script('ckeditor/ckeditor.js') }}
 </head>
 <body>
 

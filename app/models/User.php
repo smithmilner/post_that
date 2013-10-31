@@ -45,6 +45,15 @@ class User extends AffinityArdent implements UserInterface, RemindableInterface 
 		'password' => 'required|alpha_num|min:5',
 	);
 
+	/**
+	 * Factory
+	 */
+	public static $factory = array(
+		'username' => 'string',
+		'email' => 'email',
+		'password' => 'password'
+	);
+
 	public function posts()
 	{
 		return $this->hasMany('Post');
