@@ -31,43 +31,4 @@ class HomeController extends BaseController {
 		return View::make('home.login');
 	}
 
-	public function postLogin()
-	{
-		$v = new Services\Validators\Login;
-
-		// If creds are valid and login is sucessful.
-		if ($v->passes() && User::login()) {
-			return Redirect::to('admin');
-		}
-
-		Alert::error($v->errors)->flash();
-		return Redirect::to('login')->withInput();
-	}
-
-	public function getRegister()
-	{
-		return View::make('home.register');
-	}
-
-	public function postRegister()
-	{
-		$v = new Services\Validators\User;
-
-		if ($v->passes())
-		{
-			$user = new User(Input::except('_token'));
-			$user->login();
-			return Redirect::to('admin')->with('message', 'Thanks for Registering.');
-
-		}
-
-		Alert::error($v->errors)->flash();
-		return Redirect::back()->withInput();
-	}
-
-	public function logout()
-	{
-		Auth::logout();
-		return Redirect::to('login');
-	}
 }

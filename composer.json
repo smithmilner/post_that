@@ -15,10 +15,12 @@
 		"zizaco/factory-muff": "dev-master"
 	},
 	"autoload": {
+		"psr-0": {
+			"Security": "app/"
+		},
 		"classmap": [
 			"app/commands",
 			"app/controllers",
-			"app/library",
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",

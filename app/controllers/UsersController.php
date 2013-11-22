@@ -1,6 +1,18 @@
 <?php
 
+use Security\Repo\User\UserInterface;
+use Security\Repo\Session\SessionInterface;
+
 class UsersController extends BaseController {
+
+	protected $UserRepo;
+	protected $session;
+
+	public function __construct(UserInterface $UserRepo, SessionInterface $session)
+	{
+		$this->UserRepo = $UserRepo;
+		$this->session = $session;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -30,7 +42,19 @@ class UsersController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::except('_token');
+		$v = new Security\Services\Validators\User($input);
+
+		if ($v->passes())
+		{
+			$this->UserRepo->store($input);
+			$this->session->store($input);
+			return Redirect::to('admin')->with('message', 'Thanks for Registering.');
+
+		}
+
+		Alert::error($v->errors)->flash();
+		return Redirect::back()->withInput();
 	}
 
 	/**

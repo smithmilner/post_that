@@ -3,9 +3,9 @@
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-// use Cartalyst\Sentry\Users\Eloquent\User as SentryUser;
+use \Cartalyst\Sentry\Users\Eloquent\User as SentryUser;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class User extends SentryUser implements UserInterface, RemindableInterface {
 
 	/**
 	 * The database table used by the model.
@@ -83,26 +83,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	}
 
 	/**
-	 * Attempt a user login with the provided inputs.
-	 *
-	 * @param  array $input Login credentials
-	 * @return mixed        A user object or false on failure.
-	 */
-	public static function login($input = null, $remember = false)
-	{
-		$input = $input ?: Input::except('_token');
-		if (Auth::attempt($input)) {
-
-			return Auth::user();
-
-		} else {
-
-			return false;
-
-		}
-	}
-
-	/**
 	 * Finds the username for the suppied user.
 	 * @param  int  $user_id
 	 * @return  string
@@ -124,13 +104,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return ucwords($username);
 	}
 
-	public function beforeSave() {
-		// if there's a new password, hash it
-		if($this->isDirty('password')) {
-			$this->password = Hash::make($this->password);
-		}
+	// public function beforeSave() {
+	// 	// if there's a new password, hash it
+	// 	if($this->isDirty('password')) {
+	// 		$this->password = Hash::make($this->password);
+	// 	}
 
-		return true;
-	}
+	// 	return true;
+	// }
 
 }

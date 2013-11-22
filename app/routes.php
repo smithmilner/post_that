@@ -19,17 +19,17 @@ Route::get('/', 'HomeController@getIndex');
 
 Route::group(array('before' => 'guest'), function() {
 
-    Route::get('login', 'HomeController@getLogin');
-    Route::post('login', 'HomeController@postLogin');
+    Route::get('login', 'SessionController@create');
+    Route::post('login', 'SessionController@store');
 
-    Route::get('register', 'HomeController@getRegister');
-    Route::post('register', 'HomeController@postRegister');
+    Route::get('register', 'UsersController@create');
+    Route::post('register', 'UsersController@store');
 
 });
 
 Route::group(array('before' => 'auth'), function () {
 
-    Route::get('logout', 'HomeController@logout');
+    Route::get('logout', 'SessionController@destroy');
     Route::get('admin', 'AdminController@getIndex');
 
     Route::resource('posts', 'PostsController');

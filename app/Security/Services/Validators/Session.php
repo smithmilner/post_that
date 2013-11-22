@@ -1,6 +1,6 @@
-<?php namespace Services\Validators;
+<?php namespace Security\Services\Validators;
 
-class Login extends Validator {
+class Session extends Validator {
 	/**
 	 * Required variables to create a user
 	 *

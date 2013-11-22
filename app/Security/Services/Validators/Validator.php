@@ -1,4 +1,4 @@
-<?php namespace Services\Validators;
+<?php namespace Security\Services\Validators;
 
 abstract class Validator {
 

@@ -114,6 +114,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Cartalyst\Sentry\SentryServiceProvider',
+		'Security\SecurityServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Prologue\Alerts\AlertsServiceProvider',
 
