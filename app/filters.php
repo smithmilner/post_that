@@ -78,3 +78,14 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+// Determine access via route filter.
+// Route::filter('resourceAccess', function($route, $request, $resource_key, $permission)
+// {	
+// 	$flag = $route->getParameter($resource_key);
+
+// 	if (!$flag->hasAccess($permission, Sentry::getUser()))
+// 	{
+// 		return Redirect::to('/');
+// 	}
+// });

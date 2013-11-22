@@ -33,15 +33,15 @@ class HomeController extends BaseController {
 
 	public function postLogin()
 	{
-		$input = Input::only('username', 'password');
-		$v = User::validateLogin($input);
+		$v = new Services\Validators\Login;
 
 		// If creds are valid and login is sucessful.
-		if ($v->passes() && User::login($input)) {
+		if ($v->passes() && User::login()) {
 			return Redirect::to('admin');
 		}
 
-		return Redirect::to('login')->withErrors($v);
+		Alert::error($v->errors)->flash();
+		return Redirect::to('login')->withInput();
 	}
 
 	public function getRegister()
@@ -51,17 +51,18 @@ class HomeController extends BaseController {
 
 	public function postRegister()
 	{
-		$user = new User;
-		if ($user->save()) {
+		$v = new Services\Validators\User;
 
-			User::login(Input::only('username','password'));
-			return Redirect::to('login')->with('message', 'Thanks for Registering.');
-
-		} else {
-			$user->displayErrors();
-			return Redirect::to('register')->withInput();
+		if ($v->passes())
+		{
+			$user = new User(Input::except('_token'));
+			$user->login();
+			return Redirect::to('admin')->with('message', 'Thanks for Registering.');
 
 		}
+
+		Alert::error($v->errors)->flash();
+		return Redirect::back()->withInput();
 	}
 
 	public function logout()

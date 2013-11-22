@@ -2,9 +2,7 @@
 
 use LaravelBook\Ardent\Ardent;
 
-class Post extends AffinityArdent {
-
-    public $autoHydrateEntityFromInput = true;
+class Post extends Eloquent {
 
     /**
      * Model attributes allowed to be mass assigned.

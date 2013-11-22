@@ -3,8 +3,107 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "2fd4b33e07ee1ebfcf546ce45bb4238a",
+    "hash": "c83a2c9bbe7b81947047ae53351f9c8c",
     "packages": [
+        {
+            "name": "cartalyst/sentry",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cartalyst/sentry.git",
+                "reference": "f4b2dcb4e931b8c20fd6f45497cc089284378341"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cartalyst/sentry/zipball/f4b2dcb4e931b8c20fd6f45497cc089284378341",
+                "reference": "f4b2dcb4e931b8c20fd6f45497cc089284378341",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "illuminate/cookie": "~4",
+                "illuminate/database": "~4",
+                "illuminate/session": "~4",
+                "ircmaxell/password-compat": "1.0.*",
+                "mockery/mockery": "0.7.2"
+            },
+            "suggest": {
+                "happydemon/txt": "Required Text helpers when using the Kohana implementation",
+                "illuminate/database": "Default sentry user, group and throttling implementations.",
+                "ircmaxell/password-compat": "Default hashing uses PHP 5.5 password_* functions, with forward-compatible support."
+            },
+            "type": "library",
+            "extra": {
+                "component": "package",
+                "frameworks": [
+                    "Laravel 3",
+                    "Laravel 4",
+                    "CodeIgniter 3",
+                    "FuelPHP 1",
+                    "Kohana"
+                ],
+                "versions": {
+                    "1": "1.1/master",
+                    "2": "master"
+                },
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/Cartalyst/Sentry/Groups/Exceptions.php",
+                    "src/Cartalyst/Sentry/Throttling/Exceptions.php",
+                    "src/Cartalyst/Sentry/Users/Exceptions.php",
+                    "src/migrations"
+                ],
+                "psr-0": {
+                    "Cartalyst\\Sentry": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Corlett",
+                    "email": "ben.corlett@cartalyst.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Cartalyst LLC",
+                    "email": "help@cartalyst.com"
+                },
+                {
+                    "name": "Bruno Gaspar",
+                    "email": "bruno.gaspar@cartalyst.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Dan Syme",
+                    "email": "dan.syme@cartalyst.com",
+                    "role": "Creator & Designer"
+                },
+                {
+                    "name": "Daniel Petrie",
+                    "email": "dan.petrie@cartalyst.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP 5.3+ Fully-featured Authentication & Authorization System",
+            "keywords": [
+                "auth",
+                "codeigniter",
+                "fuelphp",
+                "kohana",
+                "laravel",
+                "security"
+            ],
+            "time": "2013-11-18 23:23:18"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "1.0.1",
@@ -673,12 +772,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "4fd85b295e3825a2fcdf4ab25a0d9a3b79a99870"
+                "reference": "31fb3d8e18a02fd10877cfc16045f673d9e7cfc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/4fd85b295e3825a2fcdf4ab25a0d9a3b79a99870",
-                "reference": "4fd85b295e3825a2fcdf4ab25a0d9a3b79a99870",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/31fb3d8e18a02fd10877cfc16045f673d9e7cfc3",
+                "reference": "31fb3d8e18a02fd10877cfc16045f673d9e7cfc3",
                 "shasum": ""
             },
             "require": {
@@ -778,66 +877,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-11-15 04:57:21"
-        },
-        {
-            "name": "laravelbook/ardent",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravelbook/ardent.git",
-                "reference": "4d3b12d7afc82277ec4c77c3f59d9296d658b903"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravelbook/ardent/zipball/4d3b12d7afc82277ec4c77c3f59d9296d658b903",
-                "reference": "4d3b12d7afc82277ec4c77c3f59d9296d658b903",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "4.x",
-                "illuminate/support": "4.x",
-                "illuminate/validation": "4.x",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "LaravelBook\\Ardent": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Max Ehsan",
-                    "email": "contact@laravelbook.com",
-                    "homepage": "http://laravelbook.com/",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Igor Santos",
-                    "email": "igorsantos07@gmail.com",
-                    "homepage": "http://www.igorsantos.com.br",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Self-validating smart models for Laravel 4's Eloquent O/RM",
-            "homepage": "http://laravelbook.com/",
-            "keywords": [
-                "Active Record",
-                "activerecord",
-                "database",
-                "eloquent",
-                "framework",
-                "laravel",
-                "orm",
-                "sql",
-                "validation"
-            ],
-            "time": "2013-10-16 20:03:00"
+            "time": "2013-11-21 02:34:54"
         },
         {
             "name": "monolog/monolog",
@@ -845,12 +885,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "6225b22de9dcf36546be3a0b2fa8e3d986153f57"
+                "reference": "11cb918bbc471da036c6148b995d42f79806428d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/6225b22de9dcf36546be3a0b2fa8e3d986153f57",
-                "reference": "6225b22de9dcf36546be3a0b2fa8e3d986153f57",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/11cb918bbc471da036c6148b995d42f79806428d",
+                "reference": "11cb918bbc471da036c6148b995d42f79806428d",
                 "shasum": ""
             },
             "require": {
@@ -904,7 +944,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-11-14 19:48:31"
+            "time": "2013-11-20 12:44:25"
         },
         {
             "name": "mustache/mustache",
@@ -953,20 +993,23 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "06f0b8a99a90c5392ceccb09b75b74ff6c08ec07"
+                "reference": "64c0192173e78ad405411f16d3c1a699386d882c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/06f0b8a99a90c5392ceccb09b75b74ff6c08ec07",
-                "reference": "06f0b8a99a90c5392ceccb09b75b74ff6c08ec07",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/64c0192173e78ad405411f16d3c1a699386d882c",
+                "reference": "64c0192173e78ad405411f16d3c1a699386d882c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
             "autoload": {
@@ -992,7 +1035,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2013-09-09 02:39:19"
+            "time": "2013-11-21 21:09:53"
         },
         {
             "name": "nikic/php-parser",
@@ -1656,12 +1699,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Filesystem.git",
-                "reference": "e558fd5d593ebe083dca199f52aed5374ab7b57a"
+                "reference": "79acd777762e81d0f3414ca25a602deeeb48240d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/e558fd5d593ebe083dca199f52aed5374ab7b57a",
-                "reference": "e558fd5d593ebe083dca199f52aed5374ab7b57a",
+                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/79acd777762e81d0f3414ca25a602deeeb48240d",
+                "reference": "79acd777762e81d0f3414ca25a602deeeb48240d",
                 "shasum": ""
             },
             "require": {
@@ -1694,7 +1737,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "http://symfony.com",
-            "time": "2013-09-27 14:57:51"
+            "time": "2013-11-16 15:13:54"
         },
         {
             "name": "symfony/finder",
@@ -2118,6 +2161,62 @@
             ],
             "description": "Easier testing in Laravel.",
             "time": "2013-09-13 16:53:25"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "mockery/mockery",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/padraic/mockery.git",
+                "reference": "23ca1a274fb8fd175101574ac81cd1b82f3d0489"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/23ca1a274fb8fd175101574ac81cd1b82f3d0489",
+                "reference": "23ca1a274fb8fd175101574ac81cd1b82f3d0489",
+                "shasum": ""
+            },
+            "require": {
+                "lib-pcre": ">=7.0",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "hamcrest/hamcrest": "1.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mockery": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Pádraic Brady",
+                    "email": "padraic.brady@gmail.com",
+                    "homepage": "http://blog.astrumfutura.com"
+                }
+            ],
+            "description": "Mockery is a simple yet flexible PHP mock object framework for use in unit testing with PHPUnit, PHPSpec or any other testing framework. Its core goal is to offer a test double framework with a succint API capable of clearly defining all possible object operations and interactions using a human readable Domain Specific Language (DSL). Designed as a drop in alternative to PHPUnit's phpunit-mock-objects library, Mockery is easy to integrate with PHPUnit and can operate alongside phpunit-mock-objects without the World ending.",
+            "homepage": "http://github.com/padraic/mockery",
+            "keywords": [
+                "BDD",
+                "TDD",
+                "library",
+                "mock",
+                "mock objects",
+                "mockery",
+                "stub",
+                "test",
+                "test double",
+                "testing"
+            ],
+            "time": "2013-11-12 11:09:16"
         },
         {
             "name": "zizaco/factory-muff",
@@ -2162,17 +2261,14 @@
             "time": "2013-06-10 12:07:19"
         }
     ],
-    "packages-dev": [
-
-    ],
     "aliases": [
 
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "laravelbook/ardent": 20,
         "prologue/alerts": 20,
         "way/generators": 20,
+        "mockery/mockery": 20,
         "zizaco/factory-muff": 20
     },
     "platform": [

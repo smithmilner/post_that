@@ -4,11 +4,14 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
+		"cartalyst/sentry": "2.0.*",
 		"laravel/framework": "4.0.*",
-		"laravelbook/ardent": "dev-master",
 		"nesbot/Carbon": "*",
 		"prologue/alerts": "dev-master",
-		"way/generators": "dev-master",
+		"way/generators": "dev-master"
+	},
+	"require-dev": {
+		"mockery/mockery": "dev-master@dev",
 		"zizaco/factory-muff": "dev-master"
 	},
 	"autoload": {

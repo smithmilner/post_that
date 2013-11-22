@@ -2,9 +2,7 @@
 
 use LaravelBook\Ardent\Ardent;
 
-class Flag extends AffinityArdent {
-
-	public $autoHydrateEntityFromInput = true;
+class Flag extends Eloquent {
 
 	/**
      * Model attributes allowed to be mass assigned.

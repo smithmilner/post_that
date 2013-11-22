@@ -15,6 +15,14 @@ $app = new Illuminate\Foundation\Application;
 
 $app->redirectIfTrailingSlash();
 
+/**
+* Output to the error log
+*/
+function _p($message, $id = NULL) {
+  if (is_null($id)) error_log(print_r($message, 1), 0);
+  else error_log(print_r('[' . $id . '] : ' . print_r($message, 1), 1), 0);
+}
+
 /*
 |--------------------------------------------------------------------------
 | Detect The Application Environment

@@ -2,11 +2,10 @@
 
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
-use LaravelBook\Ardent\Ardent;
 
-class User extends AffinityArdent implements UserInterface, RemindableInterface {
+// use Cartalyst\Sentry\Users\Eloquent\User as SentryUser;
 
-	public $autoHydrateEntityFromInput = true;
+class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	/**
 	 * The database table used by the model.
@@ -33,17 +32,6 @@ class User extends AffinityArdent implements UserInterface, RemindableInterface 
 	 * @var array
 	 */
 	protected $guarded = array('id', 'password');
-
-	/**
-	 * Required variables to create a user
-	 *
-	 * @var array
-	 */
-	public static $rules = array(
-		'username' => 'required|between:3,24',
-		'email' => 'required|unique:users|email',
-		'password' => 'required|alpha_num|min:5',
-	);
 
 	/**
 	 * Factory
@@ -94,19 +82,15 @@ class User extends AffinityArdent implements UserInterface, RemindableInterface 
 		return $this->email;
 	}
 
-	public static function validateLogin($input)
-	{
-		return $v = Validator::make($input, array_except(self::$rules, array('email')));
-	}
-
 	/**
 	 * Attempt a user login with the provided inputs.
 	 *
 	 * @param  array $input Login credentials
 	 * @return mixed        A user object or false on failure.
 	 */
-	public static function login($input)
+	public static function login($input = null, $remember = false)
 	{
+		$input = $input ?: Input::except('_token');
 		if (Auth::attempt($input)) {
 
 			return Auth::user();

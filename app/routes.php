@@ -48,9 +48,21 @@ Route::group(array('before' => 'auth'), function () {
     Route::get('users/{user}', array('as' => 'users.show',  'uses' => 'UsersController@show'));
 
     // Flags
-    Route::post('flags',          array('as' => 'flags.store',   'uses' => 'FlagsController@store'));
-    Route::get('flags/{flag}',    array('as' => 'flags.show',    'uses' => 'FlagsController@show'));
-    Route::delete('flags/{flag}', array('as' => 'flags.destroy', 'uses' => 'FlagsController@destroy'));
+    Route::post('flags', array(
+        // 'before' => 'resourceAccess:flag,flag.create',
+        'as' => 'flags.store',
+        'uses' => 'FlagsController@store'
+    ));
+    Route::get('flags/{flag}', array(
+        // 'before' => 'resourceAccess:flag,flag.view',
+        'as' => 'flags.show',
+        'uses' => 'FlagsController@show'
+    ));
+    Route::delete('flags/{flag}', array(
+        // 'before' => 'resourceAccess:flag,flag.delete',
+        'as' => 'flags.destroy',
+        'uses' => 'FlagsController@destroy'
+    ));
 });
 
 /**
