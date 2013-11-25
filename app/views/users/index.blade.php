@@ -6,7 +6,7 @@
     <h1>Users</h1>
 </div>
 
-@if($users->count())
+@if(count($users))
     <table class="table table-striped table-hover">
         <thead>
             <tr>

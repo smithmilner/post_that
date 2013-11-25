@@ -13,7 +13,7 @@
             <ul class="nav navbar-nav">
 
                 <li>{{ HTML::rawLink('/', '<span class="glyphicon glyphicon-home"></span> Home') }}</li>
-                @if(Auth::check())
+                @if(Sentry::check())
                 <li>{{ HTML::rawLink('admin', '<span class="glyphicon glyphicon-list"></span> Admin') }}</li>
                 <li>{{ HTML::rawLinkRoute('posts.index', '<span class="glyphicon glyphicon-book"></span> Posts') }}</li>
                 <li>{{ HTML::rawLinkRoute('users.index', '<span class="glyphicon glyphicon-user"></span> Users') }}</li>
@@ -22,7 +22,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
 
-                @if(!Auth::check())
+                @if(!Sentry::check())
                 <li>{{ HTML::rawLink('login', '<span class="glyphicon glyphicon-user"></span> Login') }}</li>
                 <li>{{ HTML::rawLink('register', '<span class="glyphicon glyphicon-plus"></span> Register') }}</li>
                 @else

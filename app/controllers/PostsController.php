@@ -32,13 +32,13 @@ class PostsController extends BaseController {
 	{
 		$input = Input::all();
 
-		if (!Auth::check()) {
+		if (!Sentry::check()) {
 			return new NotFoundHttpException;
 		}
 
 		$post = new Post($input);
 
-		if (Auth::user()->posts()->save($post)) {
+		if (Sentry::user()->posts()->save($post)) {
 
 			return Redirect::route('posts.show', array($post->id));
 		}
@@ -123,7 +123,7 @@ class PostsController extends BaseController {
 	 * @param   User $user A user object.
 	 * @return  Response
 	 */
-	public function userPosts(User $user) {
+	public function userPosts($user) {
 		$posts = $user->posts;
 		return View::make('posts.user')->with('posts', $posts)->with('author', $user);
 	}

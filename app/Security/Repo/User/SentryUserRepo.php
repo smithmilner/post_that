@@ -19,6 +19,7 @@ class SentryUserRepo extends BaseRepo implements UserInterface {
 		try
 		{
 		    // Create the user
+		    $data['activated'] = true;
 		    $user = $this->sentry->createUser($data);
 		}
 		catch (Cartalyst\Sentry\Users\LoginRequiredException $e)

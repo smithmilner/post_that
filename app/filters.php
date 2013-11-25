@@ -33,9 +33,14 @@ App::after(function($request, $response)
 |
 */
 
+// Route::filter('auth', function()
+// {
+// 	if (Auth::guest()) return Redirect::guest('login');
+// });
+
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+	if (!Sentry::check()) return Redirect::guest('login');
 });
 
 
@@ -55,9 +60,14 @@ Route::filter('auth.basic', function()
 |
 */
 
+// Route::filter('guest', function()
+// {
+// 	if (Auth::check()) return Redirect::to('/');
+// });
+
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if (Sentry::check()) return Redirect::to('/');
 });
 
 /*
@@ -80,12 +90,12 @@ Route::filter('csrf', function()
 });
 
 // Determine access via route filter.
-// Route::filter('resourceAccess', function($route, $request, $resource_key, $permission)
-// {	
-// 	$flag = $route->getParameter($resource_key);
+Route::filter('resourceAccess', function($route, $request, $resource_key, $permission)
+{	
+	$flag = $route->getParameter($resource_key);
 
-// 	if (!$flag->hasAccess($permission, Sentry::getUser()))
-// 	{
-// 		return Redirect::to('/');
-// 	}
-// });
+	if (!$flag->hasAccess($permission, Sentry::getUser()))
+	{
+		return Redirect::to('/');
+	}
+});

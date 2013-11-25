@@ -17,7 +17,7 @@ class SentrySessionRepo extends BaseRepo Implements SessionInterface {
 		$data = $data ?: \Input::all();
 		try
 		{
-			$user = $this->sentry->authenticate($data, false);
+			$user = $this->sentry->authenticate($data, true);
 		}
 		catch (Cartalyst\Sentry\Users\LoginRequiredException $e)
 		{

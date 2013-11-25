@@ -19,50 +19,75 @@ Route::get('/', 'HomeController@getIndex');
 
 Route::group(array('before' => 'guest'), function() {
 
-    Route::get('login', 'SessionController@create');
-    Route::post('login', 'SessionController@store');
+	Route::get('login', array(
+		'as' => 'session.create',
+		'uses' => 'SessionController@create'
+	));
+	Route::post('login', array(
+		'as' => 'session.store',
+		'uses' => 'SessionController@store'
+	));
 
-    Route::get('register', 'UsersController@create');
-    Route::post('register', 'UsersController@store');
+});
+
+Route::group(array('before' => 'auth'), function () {
+	Route::get('logout', array(
+		'as' => 'session.destroy',
+		'uses' => 'SessionController@destroy'
+	));
+});
+
+Route::group(array('before' => 'guest'), function() {
+
+	Route::get('register', array(
+		'as' => 'user.create',
+		'uses' => 'UsersController@create'
+	));
+
+	Route::post('register', array(
+		'as' => 'user.store',
+		'uses' => 'UsersController@store'
+	));
 
 });
 
 Route::group(array('before' => 'auth'), function () {
 
-    Route::get('logout', 'SessionController@destroy');
-    Route::get('admin', 'AdminController@getIndex');
+	Route::get('admin', 'AdminController@getIndex');
 
-    Route::resource('posts', 'PostsController');
-    // Route::get('posts',              array('as' => 'posts.index',   'uses' => 'PostsController@index'));
-    // Route::get('posts/create',       array('as' => 'posts.create',  'uses' => 'PostsController@create'));
-    // Route::post('posts',             array('as' => 'posts.store',   'uses' => 'PostsController@store'));
-    // Route::get('posts/{posts}',      array('as' => 'posts.show',    'uses' => 'PostsController@show'));
-    // Route::get('posts/{posts}/edit', array('as' => 'posts.edit',    'uses' => 'PostsController@edit'));
-    // Route::put('posts/{posts}',      array('as' => 'posts.update',  'uses' => 'PostsController@update'));
-    // Route::delete('posts/{posts}',   array('as' => 'posts.destroy', 'uses' => 'PostsController@destroy'));
+	Route::resource('posts', 'PostsController');
+	// Route::get('posts',              array('as' => 'posts.index',   'uses' => 'PostsController@index'));
+	// Route::get('posts/create',       array('as' => 'posts.create',  'uses' => 'PostsController@create'));
+	// Route::post('posts',             array('as' => 'posts.store',   'uses' => 'PostsController@store'));
+	// Route::get('posts/{posts}',      array('as' => 'posts.show',    'uses' => 'PostsController@show'));
+	// Route::get('posts/{posts}/edit', array('as' => 'posts.edit',    'uses' => 'PostsController@edit'));
+	// Route::put('posts/{posts}',      array('as' => 'posts.update',  'uses' => 'PostsController@update'));
+	// Route::delete('posts/{posts}',   array('as' => 'posts.destroy', 'uses' => 'PostsController@destroy'));
 
-    Route::get('posts/user/{user}', array('as' => 'posts.user', 'uses' => 'PostsController@userPosts'));
+	Route::get('posts/user/{user}', array('as' => 'posts.user', 'uses' => 'PostsController@userPosts'));
 
-    // User Specific Pages
-    Route::get('users',        array('as' => 'users.index', 'uses' => 'UsersController@index'));
-    Route::get('users/{user}', array('as' => 'users.show',  'uses' => 'UsersController@show'));
+	Route::resource('groups', 'GroupsController');
 
-    // Flags
-    Route::post('flags', array(
-        // 'before' => 'resourceAccess:flag,flag.create',
-        'as' => 'flags.store',
-        'uses' => 'FlagsController@store'
-    ));
-    Route::get('flags/{flag}', array(
-        // 'before' => 'resourceAccess:flag,flag.view',
-        'as' => 'flags.show',
-        'uses' => 'FlagsController@show'
-    ));
-    Route::delete('flags/{flag}', array(
-        // 'before' => 'resourceAccess:flag,flag.delete',
-        'as' => 'flags.destroy',
-        'uses' => 'FlagsController@destroy'
-    ));
+	// User Specific Pages
+	Route::get('users',        array('as' => 'users.index', 'uses' => 'UsersController@index'));
+	Route::get('users/{user}', array('as' => 'users.show',  'uses' => 'UsersController@show'));
+
+	// Flags
+	Route::post('flags', array(
+		// 'before' => 'resourceAccess:flag,flag.create',
+		'as' => 'flags.store',
+		'uses' => 'FlagsController@store'
+	));
+	Route::get('flags/{flag}', array(
+		// 'before' => 'resourceAccess:flag,flag.view',
+		'as' => 'flags.show',
+		'uses' => 'FlagsController@show'
+	));
+	Route::delete('flags/{flag}', array(
+		// 'before' => 'resourceAccess:flag,flag.delete',
+		'as' => 'flags.destroy',
+		'uses' => 'FlagsController@destroy'
+	));
 });
 
 /**
@@ -70,8 +95,8 @@ Route::group(array('before' => 'auth'), function () {
  */
 Form::macro('wysiwyg', function($name, $value = null, $options = array())
 {
-    $textarea = Form::textarea($name, $value, $options);
-    return $textarea . "<script>CKEDITOR.replace('$name');</script>";
+	$textarea = Form::textarea($name, $value, $options);
+	return $textarea . "<script>CKEDITOR.replace('$name');</script>";
 });
 
 /**
@@ -79,14 +104,14 @@ Form::macro('wysiwyg', function($name, $value = null, $options = array())
  */
 HTML::macro('rawLink', function($url, $title = null, $attributes = array(), $secure = null)
 {
-    $url = URL::to($url, array(), $secure);
+	$url = URL::to($url, array(), $secure);
 
-    if (is_null($title) or $title === false) $title = $url;
+	if (is_null($title) or $title === false) $title = $url;
 
-    return '<a href="'.$url.'"'.HTML::attributes($attributes).'>'.$title.'</a>';
+	return '<a href="'.$url.'"'.HTML::attributes($attributes).'>'.$title.'</a>';
 });
 
 HTML::macro('rawLinkRoute', function($name, $title = null, $parameters = array(), $attributes = array())
 {
-    return HTML::rawLink(URL::route($name, $parameters), $title, $attributes);
+	return HTML::rawLink(URL::route($name, $parameters), $title, $attributes);
 });

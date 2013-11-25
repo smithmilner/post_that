@@ -22,7 +22,7 @@ class HomeController extends BaseController {
 
 	public function getLogin()
 	{
-		if (Auth::check()) {
+		if (Sentry::check()) {
 
 			return Redirect::to('admin');
 

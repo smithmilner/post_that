@@ -16,10 +16,10 @@ class CreateFlagsTable extends Migration {
 			$table->increments('id');
 
 			$table->integer('user_id')->unsigned()->nullable();
-			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+			// $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
 			$table->integer('post_id')->unsigned()->nullable();
-			$table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+			// $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}

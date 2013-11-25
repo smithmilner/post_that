@@ -1,5 +1,5 @@
 <div class="favorite">
-	@if ($flag = Auth::user()->flags()->where('post_id', '=', $post->id)->first())
+	@if ($flag = Sentry::user()->flags()->where('post_id', '=', $post->id)->first())
 	{{ Form::open(array('method' => 'delete', 'route' => array('flags.destroy', $flag->id))) }}
 		{{ Form::submit('Unfavorite', array('class' => 'btn btn-danger')) }}
 	{{ Form::close() }}

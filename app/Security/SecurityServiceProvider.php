@@ -18,10 +18,10 @@ class SecurityServiceProvider extends ServiceProvider {
 			return new Repo\User\SentryUserRepo($app['sentry']);
 		});
 
-		// $this->app->bind('Security\Repo\Group\GroupInterface', function($app)
-		// {
-		// 	return new User;
-		// });
+		$this->app->bind('Security\Repo\Group\GroupInterface', function($app)
+		{
+			return new Repo\User\SentryGroupRepo($app['sentry']);
+		});
 	}
 
 	public function boot()

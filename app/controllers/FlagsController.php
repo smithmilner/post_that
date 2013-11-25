@@ -33,7 +33,7 @@ class FlagsController extends BaseController {
 
 		$flag = new Flag($input);
 
-		if (Auth::user()->flags()->save($flag)) {
+		if (Sentry::user()->flags()->save($flag)) {
 			Alert::success('Favorite Post Saved')->flash();
 		}
 
