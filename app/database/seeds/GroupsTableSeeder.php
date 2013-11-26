@@ -13,6 +13,12 @@ class GroupsTableSeeder extends Seeder {
 			'permissions' => array(
 				'admin' => 1,
 				'users' => 1,
+				'posts.index' 	=> 1,
+				'posts.create' 	=> 1,
+				'posts.show' 	=> 1,
+				'posts.edit' 	=> 1,
+				'posts.destroy' => 1,
+				'posts.user' 	=> 1,
 		)));
 
 		Sentry::getGroupProvider()->create(array(

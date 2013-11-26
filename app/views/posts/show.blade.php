@@ -12,7 +12,7 @@
 
 	</div>
     <div class="panel-body">
-        <strong>{{ Carbon::createFromTimestamp(strtotime($post->created_at))->diffForHumans() }} - {{ link_to_route('users.show', e(User::getUserName($post->user_id)), array($post->user_id)) }}</strong><br />
+        <strong>{{ Carbon::createFromTimestamp(strtotime($post->created_at))->diffForHumans() }} - {{ link_to_route('users.show', e(getUsername($post->user_id)), array($post->user_id)) }}</strong><br />
         {{ $post->body }}
     </div>
 </div>

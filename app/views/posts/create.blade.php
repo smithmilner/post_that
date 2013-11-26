@@ -12,6 +12,8 @@
             {{ Form::label('body', 'Body: ') }}
             {{ Form::wysiwyg('body', '', array('placeholder' => 'add some text to your note', 'class' => 'form-control')) }}
         </div></br>
+        {{ Form::label('status', 'Published Status: ')}}
+        {{ Form::checkbox('status', true, true) }}
         {{ Form::submit('Add', array('class' => 'btn btn-success')) }}
         {{ HTML::link('posts', 'Cancel', array('class' => 'btn btn-warning')) }}
         {{ Form::close() }}

@@ -8,14 +8,9 @@ class Post extends Eloquent {
      * Model attributes allowed to be mass assigned.
      * @var array
      */
-    protected $fillable = array('title', 'user_id', 'body');
+    protected $fillable = array('title', 'user_id', 'body', 'status');
 
 	protected $guarded = array('id');
-
-	public static $rules = array(
-        'title' => 'required',
-        'user_id' => 'required'
-    );
 
     public function user()
     {

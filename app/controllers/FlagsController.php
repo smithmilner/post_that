@@ -33,12 +33,12 @@ class FlagsController extends BaseController {
 
 		$flag = new Flag($input);
 
-		if (Sentry::user()->flags()->save($flag)) {
+		if (Sentry::getUser()->flags()->save($flag)) {
 			Alert::success('Favorite Post Saved')->flash();
 		}
 
 		// Add validation errors to the page.
-		$flag->displayErrors();
+		// $flag->displayErrors();
 		return Redirect::route('posts.show', array($input['post_id']));
 	}
 

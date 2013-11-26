@@ -91,11 +91,26 @@ Route::filter('csrf', function()
 
 // Determine access via route filter.
 Route::filter('resourceAccess', function($route, $request, $resource_key, $permission)
-{	
-	$flag = $route->getParameter($resource_key);
+{
+	$resource = $route->getParameter($resource_key);
 
-	if (!$flag->hasAccess($permission, Sentry::getUser()))
+	$authz = new PostThatCore\Services\Authorizer\Post($permission, $resource);
+	// $authz = new ($resource_key . 'Authorizer')($permission, $resource);
+
+	if (!$authz->passes())
 	{
-		return Redirect::to('/');
+		App::abort(403);
+	}
+});
+
+Route::filter('userAccess', function($route, $request, $permissions)
+{
+	// Slice the route and request so we can add multiple permissions.
+	$permissions = array_slice(func_get_args(), 2);
+
+	$user = Sentry::getUser();
+	if (!$user->hasAccess($permissions))
+	{
+		App::abort(403);
 	}
 });

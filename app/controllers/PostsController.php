@@ -1,6 +1,15 @@
 <?php
 
+use PostThatCore\Repo\Post\PostInterface;
+
 class PostsController extends BaseController {
+
+	protected $PostRepo;
+
+	public function __construct(PostInterface $PostRepo)
+	{
+		$this->PostRepo = $PostRepo;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -30,21 +39,15 @@ class PostsController extends BaseController {
 	 */
 	public function store()
 	{
-		$input = Input::all();
 
-		if (!Sentry::check()) {
-			return new NotFoundHttpException;
-		}
+		$v = new PostThatCore\Services\Validators\Post;
 
-		$post = new Post($input);
-
-		if (Sentry::user()->posts()->save($post)) {
+		if ($v->passes() && $post = $this->PostRepo->store()) {
 
 			return Redirect::route('posts.show', array($post->id));
-		}
 
-		// Set errors
-		$post->displayErrors();
+		}
+		Alert::error($v->errors)->flash();
 		return Redirect::back();
 	}
 
@@ -94,7 +97,6 @@ class PostsController extends BaseController {
 	public function update($id)
 	{
 		$post = Post::findOrFail($id);
-
 		if ($post->update(Input::all())) {
 
 			return Redirect::route('posts.index');

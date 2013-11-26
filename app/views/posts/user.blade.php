@@ -5,7 +5,7 @@
 @if($posts->count())
 <div class="page-header">
     <h1>
-        Review {{{ User::getUserName($author->id) }}}'s Posts
+        Review {{{ getUsername($author->id) }}}'s Posts
         <small>{{ $posts->count() }} @if($posts->count() > 1) Posts @else Post @endif </small>
     </h1>
 </div>

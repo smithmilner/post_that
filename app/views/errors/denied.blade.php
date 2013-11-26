@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="well">
-        <legend>404 - Route Not Found</legend>
+        <legend>403 - What are you trying to pull?</legend>
         
     </div>
 </div>
