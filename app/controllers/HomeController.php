@@ -22,13 +22,13 @@ class HomeController extends BaseController {
 
 	public function getLogin()
 	{
-		if (Sentry::check()) {
+		if (Auth::check()) {
 
 			return Redirect::to('admin');
 
 		}
 
-		return View::make('home.login');
+		return Redirect::route('sessions.create');
 	}
 
 }

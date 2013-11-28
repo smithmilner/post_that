@@ -13,6 +13,7 @@ class PostsTableSeeder extends Seeder {
 			[
 				'title' => 'first post',
 				'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, nulla, illum, consequatur minus numquam dolores rem hic quisquam labore vel fugiat sapiente facere error mollitia ullam ipsa iste doloremque? Nostrum?',
+				'status' => 1,
 				'created_at' => $now,
                 'updated_at' => $now,
                 'user_id' => 1,
@@ -20,6 +21,7 @@ class PostsTableSeeder extends Seeder {
 			[
 				'title' => 'second post',
 				'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, nulla, illum, consequatur minus numquam dolores rem hic quisquam labore vel fugiat sapiente facere error mollitia ullam ipsa iste doloremque? Nostrum?',
+				'status' => 1,
 				'created_at' => $now,
                 'updated_at' => $now,
                 'user_id' => 1,
@@ -27,6 +29,7 @@ class PostsTableSeeder extends Seeder {
 			[
 				'title' => 'third post',
 				'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, nulla, illum, consequatur minus numquam dolores rem hic quisquam labore vel fugiat sapiente facere error mollitia ullam ipsa iste doloremque? Nostrum?',
+				'status' => 1,
 				'created_at' => $now,
                 'updated_at' => $now,
                 'user_id' => 1,
@@ -34,6 +37,7 @@ class PostsTableSeeder extends Seeder {
 			[
 				'title' => 'forth post',
 				'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, nulla, illum, consequatur minus numquam dolores rem hic quisquam labore vel fugiat sapiente facere error mollitia ullam ipsa iste doloremque? Nostrum?',
+				'status' => 1,
 				'created_at' => $now,
                 'updated_at' => $now,
                 'user_id' => 1,
@@ -41,6 +45,7 @@ class PostsTableSeeder extends Seeder {
 			[
 				'title' => 'fifth post',
 				'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, nulla, illum, consequatur minus numquam dolores rem hic quisquam labore vel fugiat sapiente facere error mollitia ullam ipsa iste doloremque? Nostrum?',
+				'status' => 1,
 				'created_at' => $now,
                 'updated_at' => $now,
                 'user_id' => 1,

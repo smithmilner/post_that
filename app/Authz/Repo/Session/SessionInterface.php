@@ -1,9 +1,11 @@
-<?php namespace Security\Repo\Session;
+<?php namespace Authz\Repo\Session;
 
 interface SessionInterface {
 
 	public function store($data);
 
 	public function destroy();
+
+	public function check();
 
 }

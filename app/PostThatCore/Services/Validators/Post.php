@@ -1,6 +1,6 @@
 <?php namespace PostThatCore\Services\Validators;
 
-use Security\Services\Validators\Validator;
+use Authz\Services\Validators\Validator;
 
 class Post extends Validator {
 

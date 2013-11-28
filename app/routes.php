@@ -15,16 +15,19 @@ Route::model('user', 'User');
 Route::model('post', 'Post');
 Route::model('flag', 'Flag');
 
-Route::get('/', 'HomeController@getIndex');
+Route::get('/', [
+	'as' => 'home.index',
+	'uses' =>'HomeController@getIndex'
+]);
 
 Route::group(array('before' => 'guest'), function() {
 
 	Route::get('login', array(
-		'as' => 'session.create',
+		'as' => 'sessions.create',
 		'uses' => 'SessionController@create'
 	));
 	Route::post('login', array(
-		'as' => 'session.store',
+		'as' => 'sessions.store',
 		'uses' => 'SessionController@store'
 	));
 
@@ -32,7 +35,7 @@ Route::group(array('before' => 'guest'), function() {
 
 Route::group(array('before' => 'auth'), function () {
 	Route::get('logout', array(
-		'as' => 'session.destroy',
+		'as' => 'sessions.destroy',
 		'uses' => 'SessionController@destroy'
 	));
 });
@@ -53,48 +56,51 @@ Route::group(array('before' => 'guest'), function() {
 
 Route::group(array('before' => 'auth'), function () {
 
-	Route::get('admin', 'AdminController@getIndex');
+	Route::get('admin', [
+		'as' => 'admin.index',
+		'uses' => 'AdminController@getIndex'
+	]);
 
 	// Route::resource('posts', 'PostsController');
 
 	Route::get('posts', [
-		'before' => 'userAccess:posts.index',
+		// 'before' => 'userAccess:posts.index',
 		'as' 	 => 'posts.index',
 		'uses' 	 => 'PostsController@index'
 	]);
 	Route::get('posts/create', [
-		'before' => 'userAccess:posts.create',
+		// 'before' => 'userAccess:posts.create',
 		'as' 	 => 'posts.create',
 		'uses' 	 => 'PostsController@create'
 	]);
 	Route::post('posts', [
-		'before' => 'userAccess:posts.create',
+		// 'before' => 'userAccess:posts.create',
 		'as' 	 => 'posts.store',
 		'uses' 	 => 'PostsController@store'
 	]);
 	Route::get('posts/{posts}', [
-		'before' => 'userAccess:posts.show',
+		// 'before' => 'userAccess:posts.show',
 		'as' 	 => 'posts.show',
 		'uses' 	 => 'PostsController@show'
 	]);
 	Route::get('posts/{posts}/edit', [
-		'before' => 'resourceAccess:post,posts.edit',
+		// 'before' => 'resourceAccess:post,posts.edit',
 		'as' 	 => 'posts.edit',
 		'uses' 	 => 'PostsController@edit'
 	]);
 	Route::put('posts/{posts}', [
-		'before' => 'userAccess:posts.edit',
+		// 'before' => 'userAccess:posts.edit',
 		'as' 	 => 'posts.update',
 		'uses' 	 => 'PostsController@update'
 	]);
 	Route::delete('posts/{posts}', [
-		'before' => 'userAccess:posts.destroy',
+		// 'before' => 'userAccess:posts.destroy',
 		'as' 	 => 'posts.destroy',
 		'uses' 	 => 'PostsController@destroy'
 	]);
 
 	Route::get('posts/user/{user}', [
-		'before' => 'userAccess:posts.user',
+		// 'before' => 'userAccess:posts.user',
 		'as' 	 => 'posts.user',
 		'uses' 	 => 'PostsController@userPosts'
 	]);
@@ -152,14 +158,3 @@ HTML::macro('rawLinkRoute', function($name, $title = null, $parameters = array()
 /**
  *  ====== helpers ======
  */
-function getUsername($user_id = null)
-{
-	try
-	{
-		return Sentry::findUserById($user_id)->getLogin();
-	}
-	catch (UserNotFoundException $e)
-	{
-		return 'Anonymous';
-	}
-}

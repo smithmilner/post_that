@@ -1,4 +1,4 @@
-<?php namespace Security\Repo\Group;
+<?php namespace Authz\Repo\Group;
 
 interface GroupInterface {
 

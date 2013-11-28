@@ -1,11 +1,11 @@
-<?php
+<?php namespace Authz\Models;
+
 
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
+use \Eloquent as Eloquent;
 
-use \Cartalyst\Sentry\Users\Eloquent\User as SentryUser;
-
-class User extends SentryUser implements UserInterface, RemindableInterface {
+class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	/**
 	 * The database table used by the model.

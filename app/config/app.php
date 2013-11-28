@@ -113,9 +113,8 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'Cartalyst\Sentry\SentryServiceProvider',
-		'Security\SecurityServiceProvider',
 		'PostThatCore\PostThatCoreServiceProvider',
+		'Authz\AuthzServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Prologue\Alerts\AlertsServiceProvider',
 
@@ -183,9 +182,9 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-		'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
 		'Carbon'		  => 'Carbon\Carbon',
 		'Alert' 		  => 'Prologue\Alerts\Facades\Alert',
+		'ValidatorFactory'=> 'Authz\Facades\ValidatorFactory',
 		'FactoryMuff'	  => 'Zizaco\FactoryMuff\Facade\FactoryMuff'
 
 	),

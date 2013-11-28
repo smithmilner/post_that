@@ -16,6 +16,8 @@ class PostThatCoreServiceProvider extends ServiceProvider {
 
 	public function boot()
 	{
-		// 
+		$this->app['validatorfactory']->register('post', function($input) {
+			return new Services\Validators\Post($input);
+		});
 	}
 }

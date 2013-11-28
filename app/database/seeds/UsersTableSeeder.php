@@ -14,7 +14,6 @@ class UsersTableSeeder extends Seeder {
 				'username' => 'Admin',
 				'email' => 'info@affinitybridge.com',
 				'password' => Hash::make('password'),
-				'activated' => 1,
 				'created_at' => $now,
                 'updated_at' => $now,
 			]

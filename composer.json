@@ -16,7 +16,7 @@
 	},
 	"autoload": {
 		"psr-0": {
-			"Security": "app/",
+			"Authz": "app/",
 			"PostThatCore": "app/"
 		},
 		"classmap": [

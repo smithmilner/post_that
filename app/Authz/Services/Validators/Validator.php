@@ -1,6 +1,6 @@
-<?php namespace Security\Services\Validators;
+<?php namespace Authz\Services\Validators;
 
-abstract class Validator {
+abstract class Validator implements ValidatorInterface {
 
 	protected $attributes;
 
@@ -13,12 +13,17 @@ abstract class Validator {
 
 	public function passes()
 	{
-		$v = \Validator::make($this->attributes, static::$rules);
+		$v = \Validator::make($this->attributes, $this->getRules());
 
 		if ($v->passes()) return true;
 
 		$this->errors = $v->messages();
 
 		return false;
+	}
+
+	public function getErrors()
+	{
+		return $this->errors;
 	}
 }

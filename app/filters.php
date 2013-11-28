@@ -40,7 +40,7 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (!Sentry::check()) return Redirect::guest('login');
+	if (!Auth::check()) return Redirect::guest('login');
 });
 
 
@@ -67,7 +67,7 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Sentry::check()) return Redirect::to('/');
+	if (Auth::check()) return Redirect::to('/');
 });
 
 /*
@@ -86,31 +86,5 @@ Route::filter('csrf', function()
 	if (Session::token() != Input::get('_token'))
 	{
 		throw new Illuminate\Session\TokenMismatchException;
-	}
-});
-
-// Determine access via route filter.
-Route::filter('resourceAccess', function($route, $request, $resource_key, $permission)
-{
-	$resource = $route->getParameter($resource_key);
-
-	$authz = new PostThatCore\Services\Authorizer\Post($permission, $resource);
-	// $authz = new ($resource_key . 'Authorizer')($permission, $resource);
-
-	if (!$authz->passes())
-	{
-		App::abort(403);
-	}
-});
-
-Route::filter('userAccess', function($route, $request, $permissions)
-{
-	// Slice the route and request so we can add multiple permissions.
-	$permissions = array_slice(func_get_args(), 2);
-
-	$user = Sentry::getUser();
-	if (!$user->hasAccess($permissions))
-	{
-		App::abort(403);
 	}
 });

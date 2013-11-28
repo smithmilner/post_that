@@ -1,14 +1,14 @@
 <?php
 
-use Security\Repo\Session\SessionInterface;
+use Authz\Repo\Session\SessionInterface;
 
 class SessionController extends BaseController {
 
-	protected $SessionRepo;
+	protected $session;
 
-	public function __construct(SessionInterface $SessionRepo)
+	public function __construct(SessionInterface $session)
 	{
-		$this->SessionRepo = $SessionRepo;
+		$this->session = $session;
 	}
 
 	/**
@@ -28,26 +28,20 @@ class SessionController extends BaseController {
 	 */
 	public function store()
 	{
-		$input = Input::except('_token');
-		$v = new Security\Services\Validators\Session($input);
+		// validate input
+		$v = ValidatorFactory::make('session');
+
 		if ($v->passes())
 		{
-			try
+			// save the session
+			if ($this->session->store(Input::except('_token')))
 			{
-				$this->SessionRepo->store($input);
-			}
-			catch (Cartalyst\Sentry\Users\UserNotActivatedException $e)
-			{
-				$username = $input['username'];
-				Alert::error("Cannot login user $username as they are not activated.");
-				Alert::flash();
-				return Redirect::back()->withInput();
+				return Redirect::route('home.index');
 			}
 		}
-		// Success!
-		return Redirect::to('/');
-	}
 
+		return Redirect::back()->withErrors($v->errors);
+	}
 
 	/**
 	 * Remove the specified resource from storage.
@@ -57,7 +51,8 @@ class SessionController extends BaseController {
 	 */
 	public function destroy()
 	{
-		$this->SessionRepo->destroy();
+		$this->session->destroy();
+		return Redirect::route('sessions.create');
 	}
 
 }

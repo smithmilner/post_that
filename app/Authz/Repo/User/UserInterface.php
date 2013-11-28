@@ -1,4 +1,4 @@
-<?php namespace Security\Repo\User;
+<?php namespace Authz\Repo\User;
 
 interface UserInterface {
 
@@ -8,7 +8,7 @@ interface UserInterface {
 
 	public function destroy($id);
 
-	public function byId($id);
+	public function find($id);
 
 	public function all();
 
