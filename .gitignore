@@ -3,6 +3,8 @@
 /app/config/stage
 /app/config/production
 /app/config/packages/artdarek/oauth-4-laravel/production/*
+/app/config/packages/artdarek/oauth-4-laravel/dev/*
+/app/config/packages/artdarek/oauth-4-laravel/stage/*
 /bootstrap/compiled.php
 /vendor
 composer.phar
