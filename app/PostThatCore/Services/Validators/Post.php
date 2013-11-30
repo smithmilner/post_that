@@ -13,4 +13,8 @@ class Post extends Validator {
 		'title' => 'required',
 	];
 
+	public function getRules()
+	{
+		return $this->rules;
+	}
 }
