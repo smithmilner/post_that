@@ -9,7 +9,7 @@ class Post extends Validator {
 	 *
 	 * @var array
 	 */
-	static $rules = [
+	protected $rules = [
 		'title' => 'required',
 	];
 
