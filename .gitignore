@@ -2,6 +2,7 @@
 /app/config/dev
 /app/config/stage
 /app/config/production
+/app/config/packages/artdarek/oauth-4-laravel/production/*
 /bootstrap/compiled.php
 /vendor
 composer.phar
