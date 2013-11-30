@@ -10,6 +10,7 @@
 
         {{ Form::submit('Login', array('class' => 'btn btn-success')) }}
         {{ HTML::link('register', 'Register', array('class' => 'btn btn-primary')) }}
+        {{ $linkedInLink }}
         {{ Form::close() }}
     </div>
 

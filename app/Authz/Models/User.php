@@ -42,6 +42,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		'password' => 'password'
 	);
 
+	public function profiles()
+	{
+		return $this->hasMany('Authz\Models\Profile');
+	}
+
 	public function posts()
 	{
 		return $this->hasMany('Post');

@@ -1,15 +1,16 @@
 <?php namespace PostThatCore\Repo\Post;
 
-use Security\Repo\BaseRepo;
-use Cartalyst\Sentry\Sentry;
+use Authz\Repo\BaseRepo;
 
 class PostRepo extends BaseRepo implements PostInterface {
 
-	protected $sentry;
+	protected $session;
+	protected $userRepo;
 
-	public function __construct(Sentry $sentry)
+	public function __construct($session, $userRepo)
 	{
-		$this->sentry = $sentry;
+		$this->session  = $session;
+		$this->userRepo = $userRepo;
 	}
 
 	public function store($data = null)
@@ -17,11 +18,13 @@ class PostRepo extends BaseRepo implements PostInterface {
 		$data = $data ?: \Input::all();
 
 		$post = new \Post($data);
-		$user = $this->sentry->getUser();
+		$user = $this->session->user();
+
 		if ($user->posts()->save($post))
 		{
 			return $post;
 		}
+
 		return false;
 	}
 
@@ -42,7 +45,7 @@ class PostRepo extends BaseRepo implements PostInterface {
 
 	public function all()
 	{
-
+		return Post::all();
 	}
 
 }

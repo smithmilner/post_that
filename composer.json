@@ -4,11 +4,11 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"cartalyst/sentry": "2.0.*",
 		"laravel/framework": "4.0.*",
 		"nesbot/Carbon": "*",
 		"prologue/alerts": "dev-master",
-		"way/generators": "dev-master"
+		"way/generators": "dev-master",
+		"artdarek/oauth-4-laravel": "dev-master"
 	},
 	"require-dev": {
 		"mockery/mockery": "dev-master@dev",

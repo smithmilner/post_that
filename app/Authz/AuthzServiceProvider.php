@@ -8,6 +8,16 @@ class AuthzServiceProvider extends ServiceProvider {
 	{
 		$app = $this->app;
 
+		$this->app->bind('Authz\Repo\User\UserInterface', function($app)
+		{
+			return new Repo\User\UserRepo;
+		});
+
+		$this->app->bind('Authz\Repo\Profile\ProfileInterface', function($app)
+		{
+			return new Repo\Profile\ProfileRepo;
+		});
+
 		$this->app->bind('Authz\Repo\Session\SessionInterface', function($app)
 		{
 			return new Repo\Session\SessionRepo($app['auth']);

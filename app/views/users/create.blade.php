@@ -12,7 +12,10 @@
 
         {{ Form::submit('Register', array('class' => 'btn btn-success')) }}
         {{ HTML::link('/', 'Cancel', array('class' => 'btn btn-primary')) }}
+        {{ $linkedinLink; }}
         {{ Form::close() }}
+        <br>
+        {{ link_to_route('sessions.create', 'Already have an account? login!') }}
     </div>
 </div>
 

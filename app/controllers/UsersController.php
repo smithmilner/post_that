@@ -1,7 +1,7 @@
 <?php
 
-use Security\Repo\User\UserInterface;
-use Security\Repo\Session\SessionInterface;
+use Authz\Repo\User\UserInterface;
+use Authz\Repo\Session\SessionInterface;
 
 class UsersController extends BaseController {
 
@@ -32,7 +32,8 @@ class UsersController extends BaseController {
 	 */
 	public function create()
 	{
-        return View::make('users.create');
+		$linkedinLink = link_to_route('sessions.create.linkedin', 'Register with Linkedin', array(), array('class' => 'btn btn-success'));
+        return View::make('users.create')->with('linkedinLink', $linkedinLink);
 	}
 
 	/**

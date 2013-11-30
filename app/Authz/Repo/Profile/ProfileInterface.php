@@ -1,6 +1,6 @@
-<?php namespace Authz\Repo\User;
+<?php namespace Authz\Repo\Profile;
 
-interface UserInterface {
+interface ProfileInterface {
 
 	public function create($data);
 
@@ -9,6 +9,8 @@ interface UserInterface {
 	public function destroy($id);
 
 	public function find($id);
+
+	public function findByLinkedIn($memberId);
 
 	public function all();
 

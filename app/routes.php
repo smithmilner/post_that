@@ -11,7 +11,7 @@
 |
 */
 
-Route::model('user', 'User');
+Route::model('user', 'Authz\Models\User');
 Route::model('post', 'Post');
 Route::model('flag', 'Flag');
 
@@ -26,6 +26,11 @@ Route::group(array('before' => 'guest'), function() {
 		'as' => 'sessions.create',
 		'uses' => 'SessionController@create'
 	));
+	Route::get('login/linkedin', [
+		'as' => 'sessions.create.linkedin',
+		'uses' => 'SessionController@getLinkedin',
+	]);
+
 	Route::post('login', array(
 		'as' => 'sessions.store',
 		'uses' => 'SessionController@store'
@@ -138,6 +143,12 @@ Form::macro('wysiwyg', function($name, $value = null, $options = array())
 	return $textarea . "<script>CKEDITOR.replace('$name');</script>";
 });
 
+Form::macro('linkedin', function()
+{
+	$linkedin = '<script type="IN/Login" data-onAuth="onLinkedInAuth"></script>';
+	return $linkedin;
+});
+
 /**
  * ======= Custom HTML Macros =======
  */
@@ -158,3 +169,7 @@ HTML::macro('rawLinkRoute', function($name, $title = null, $parameters = array()
 /**
  *  ====== helpers ======
  */
+function getUsername($id)
+{
+	
+}

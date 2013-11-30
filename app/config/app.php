@@ -113,6 +113,7 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
+		'Artdarek\OAuth\OAuthServiceProvider',
 		'PostThatCore\PostThatCoreServiceProvider',
 		'Authz\AuthzServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
@@ -185,7 +186,8 @@ return array(
 		'Carbon'		  => 'Carbon\Carbon',
 		'Alert' 		  => 'Prologue\Alerts\Facades\Alert',
 		'ValidatorFactory'=> 'Authz\Facades\ValidatorFactory',
-		'FactoryMuff'	  => 'Zizaco\FactoryMuff\Facade\FactoryMuff'
+		'FactoryMuff'	  => 'Zizaco\FactoryMuff\Facade\FactoryMuff',
+		'OAuth' => 'Artdarek\OAuth\Facade\OAuth',
 
 	),
 

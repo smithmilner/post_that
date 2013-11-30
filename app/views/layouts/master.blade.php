@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width">
     <title>Post That</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     {{ HTML::style('css/bootstrap.css') }}
     {{ HTML::script('ckeditor/ckeditor.js') }}
+
 </head>
 <body>
 
@@ -31,7 +33,6 @@
         </div>
     </div>
 </div>
-    
     {{ HTML::script('js/jquery.js') }}
     {{ HTML::script('js/bootstrap.js') }}
 

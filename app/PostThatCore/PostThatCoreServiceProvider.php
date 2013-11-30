@@ -10,7 +10,10 @@ class PostThatCoreServiceProvider extends ServiceProvider {
 
 		$this->app->bind('PostThatCore\Repo\Post\PostInterface', function($app)
 		{
-			return new Repo\Post\PostRepo($app['sentry']);
+			return new Repo\Post\PostRepo(
+				$app['Authz\Repo\Session\SessionInterface'],
+				$app['Authz\Repo\User\UserInterface']
+			);
 		});
 	}
 
